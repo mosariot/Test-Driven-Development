@@ -38,7 +38,7 @@ class StepCountControllerTests: XCTestCase {
   
   func testController_whenStartTapped_appIsInProgress() {
     // when
-    startStopPause()
+    whenStartStopPauseCalled()
     
     //then
     let state = AppModel.instance.appState
@@ -47,7 +47,7 @@ class StepCountControllerTests: XCTestCase {
   
   func testController_whenStartTapped_buttonLabelIsPause() {
     // when
-    startStopPause()
+    whenStartStopPauseCalled()
     
     // then
     let text = sut.startButton.title(for: .normal)
@@ -56,7 +56,7 @@ class StepCountControllerTests: XCTestCase {
   
   // MARK: - Helper 'When' Methods
   
-  private func startStopPause() {
+  private func whenStartStopPauseCalled() {
     sut.startStopPause(nil)
   }
 }

@@ -28,14 +28,7 @@
 
 import Foundation
 
-class AppModel {
+enum AppError: Error {
   
-  static let instance = AppModel()
-  private(set) var appState: AppState = .notStarted
-  
-  init() {}
-  
-  func start() {
-    appState = .inProgress
-  }
+  case goalNotSet
 }

@@ -28,14 +28,8 @@
 
 import Foundation
 
-class AppModel {
+/** The Fitness Monster */
+class Nessie {
   
-  static let instance = AppModel()
-  private(set) var appState: AppState = .notStarted
-  
-  init() {}
-  
-  func start() {
-    appState = .inProgress
-  }
+  var distance: Double = 0
 }

@@ -26,16 +26,10 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-class AppModel {
+class RootViewController: UIViewController {
   
-  static let instance = AppModel()
-  private(set) var appState: AppState = .notStarted
-  
-  init() {}
-  
-  func start() {
-    appState = .inProgress
-  }
+  @IBOutlet weak var alertHeight: NSLayoutConstraint!
+  @IBOutlet weak var alertContainer: UIView!
 }

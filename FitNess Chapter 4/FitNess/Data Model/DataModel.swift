@@ -28,14 +28,24 @@
 
 import Foundation
 
-class AppModel {
+class DataModel {
   
-  static let instance = AppModel()
-  private(set) var appState: AppState = .notStarted
+  var goalReached: Bool {
+    if let goal = goal, steps >= goal, !caught {
+      return true
+    }
+    return false
+  }
   
-  init() {}
+  var goal: Int?
+  var steps: Int = 0
   
-  func start() {
-    appState = .inProgress
+  // MARK: - Nessie
+  
+  let nessie = Nessie()
+  var distance: Double = 0
+  
+  var caught: Bool {
+    distance > 0 && nessie.distance >= distance
   }
 }
