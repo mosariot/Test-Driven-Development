@@ -29,8 +29,8 @@
 		0AEC71EC21D6EDCD00E836EB /* DataModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC71EB21D6EDCD00E836EB /* DataModel+Tests.swift */; };
 		0AEC71F021D6EE8A00E836EB /* AppModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC71EF21D6EE8A00E836EB /* AppModel+Tests.swift */; };
 		5C2901831F8F6DE700803663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */; };
-		9F5A208726F8AB9A00BFF454 /* ButtonObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5A208626F8AB9A00BFF454 /* ButtonObserver.swift */; };
 		9F97E9552701DA1000EA1635 /* RootViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E9542701DA1000EA1635 /* RootViewControllerTests.swift */; };
+		9FA05ECE27024B4100163DA1 /* Notification+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA05ECD27024B4100163DA1 /* Notification+Tests.swift */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -70,8 +70,8 @@
 		0AEC71EB21D6EDCD00E836EB /* DataModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModel+Tests.swift"; sourceTree = "<group>"; };
 		0AEC71EF21D6EE8A00E836EB /* AppModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Tests.swift"; sourceTree = "<group>"; };
 		5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9F5A208626F8AB9A00BFF454 /* ButtonObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonObserver.swift; sourceTree = "<group>"; };
 		9F97E9542701DA1000EA1635 /* RootViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerTests.swift; sourceTree = "<group>"; };
+		9FA05ECD27024B4100163DA1 /* Notification+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Tests.swift"; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* FitNess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitNess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A5F20F1F4A9144005CD714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,7 +147,6 @@
 		0A2EC8E021D41CD80091A995 /* Test Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9F5A208626F8AB9A00BFF454 /* ButtonObserver.swift */,
 				0A2EC8E121D41D030091A995 /* ViewControllers.swift */,
 			);
 			path = "Test Classes";
@@ -156,6 +155,7 @@
 		0A2EC8E321D41E150091A995 /* Test Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9FA05ECC27024B1C00163DA1 /* Alerts */,
 				0AEC71ED21D6EDEE00E836EB /* App Layer */,
 				0AEC71EE21D6EDF700E836EB /* Data Model */,
 			);
@@ -249,6 +249,14 @@
 				0AEC71EF21D6EE8A00E836EB /* AppModel+Tests.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		9FA05ECC27024B1C00163DA1 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				9FA05ECD27024B4100163DA1 /* Notification+Tests.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		D2A5F1F71F4A9143005CD714 = {
@@ -395,9 +403,9 @@
 				0A80ED3F21CB2F93000B04E3 /* DataModelTests.swift in Sources */,
 				0A21C7E021C6CF1200169D8B /* AppModelTests.swift in Sources */,
 				0AEC71F021D6EE8A00E836EB /* AppModel+Tests.swift in Sources */,
+				9FA05ECE27024B4100163DA1 /* Notification+Tests.swift in Sources */,
 				0AB709B9220CDFAE005C0AB0 /* AlertCenterTests.swift in Sources */,
 				0A2EC8E221D41D030091A995 /* ViewControllers.swift in Sources */,
-				9F5A208726F8AB9A00BFF454 /* ButtonObserver.swift in Sources */,
 				9F97E9552701DA1000EA1635 /* RootViewControllerTests.swift in Sources */,
 				0A21C7E221C70AE400169D8B /* StepCountControllerTests.swift in Sources */,
 			);

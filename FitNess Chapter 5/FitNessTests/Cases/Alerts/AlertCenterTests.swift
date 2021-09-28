@@ -44,6 +44,14 @@ class AlertCenterTests: XCTestCase {
     super.tearDown()
   }
   
+  // MARK: - Given
+  @discardableResult
+  func givenPreloadedAlert() -> Alert {
+    let alert = Alert("to be cleared")
+    sut.postAlert(alert: alert)
+    return alert
+  }
+  
   func testPostOne_generatesANotification() {
     // given
     let exp = expectation(forNotification: AlertNotification.name, object: sut, handler: nil)
@@ -122,8 +130,7 @@ class AlertCenterTests: XCTestCase {
     let exp = expectation(forNotification: AlertNotification.name, object: sut, handler: nil)
     var postedAlert: Alert?
     sut.notificationCenter.addObserver(forName: AlertNotification.name, object: sut, queue: nil) { notificaton in
-      let info = notificaton.userInfo
-      postedAlert = info?[AlertNotification.Keys.alert] as? Alert
+      postedAlert = notificaton.alert
     }
     
     // when
@@ -133,5 +140,42 @@ class AlertCenterTests: XCTestCase {
     wait(for: [exp], timeout: 1)
     XCTAssertNotNil(postedAlert, "should have sent an alert")
     XCTAssertEqual(alert, postedAlert, "should have sent the original alert")
+  }
+  
+  // MARK: - Clearing Individual Alerts
+  
+  func testWhenCleared_alertIsRemoved() {
+    // given
+    let alert = givenPreloadedAlert()
+    
+    // when
+    sut.clear(alert: alert)
+    
+    // then
+    XCTAssertEqual(sut.alertCount, 0)
+  }
+  
+  func testWhenClearingAlertNotInQueue_doesNotChangeQueue() {
+    // given
+    givenPreloadedAlert()
+    let alertNotInQueue = Alert("not in queue")
+    
+    // when
+    sut.clear(alert: alertNotInQueue)
+    
+    // then
+    XCTAssertEqual(sut.alertCount, 1)
+  }
+  
+  func testWhenClearingAlertMultipleTimes_doesNotCrash() {
+    // given
+    let alert = givenPreloadedAlert()
+    
+    // when
+    sut.clear(alert: alert)
+    sut.clear(alert: alert)
+    
+    // then
+    XCTAssertEqual(sut.alertCount, 0)
   }
 }
