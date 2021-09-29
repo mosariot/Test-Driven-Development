@@ -51,9 +51,21 @@ class AlertViewController: UIViewController {
     mainAlertView.layer.borderWidth = 1
     secondaryAlertView.layer.borderWidth = 1
   }
+  
+  func calculateViewValues() -> ViewValues {
+    let justOneAlert = AlertCenter.instance.alertCount == 1
+    let mainInset: CGFloat = justOneAlert ? 0 : 8
+    let topColor = AlertCenter.instance.topAlert?.severity.color
+    let alertText = AlertCenter.instance.topAlert?.text
+    let bottomColor = AlertCenter.instance.nextUp?.severity.color
+    
+    return ViewValues(alertText: alertText, justOneAlert: justOneAlert, topAlertInset: mainInset, topColor: topColor, bottomColor: bottomColor)
+  }
 
   @IBAction func closeAlert(_ sender: Any) {
-    // do nothing for now
+    if let topAlert = AlertCenter.instance.topAlert {
+    AlertCenter.instance.clear(alert: topAlert)
+    }
   }
 }
 

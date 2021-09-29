@@ -33,8 +33,17 @@ class AlertCenter {
   static var instance = AlertCenter()
   
   private var alertQueue: [Alert] = []
+  
   var alertCount: Int {
     alertQueue.count
+  }
+  
+  var topAlert: Alert? {
+    alertQueue.first
+  }
+  
+  var nextUp: Alert? {
+    alertQueue.count >= 2 ? alertQueue[1] : nil
   }
   
   init(center: NotificationCenter = .default) {
