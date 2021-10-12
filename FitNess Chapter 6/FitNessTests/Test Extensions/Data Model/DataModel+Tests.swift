@@ -41,6 +41,6 @@ extension DataModel {
   func setToCaught() {
     goal = 1000
     distance = 1
-    nessie.distance = 10
+    nessie.distance = distance + headstart
   }
 }

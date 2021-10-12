@@ -72,15 +72,18 @@ class AppModel {
     }
     appState = .inProgress
     startPedometer()
+    dataModel.nessie.startSwimming()
   }
 
   func pause() {
     appState = .paused
     pedometer.stop()
+    dataModel.nessie.stopSwimming()
   }
 
   func restart() {
     appState = .notStarted
+    dataModel.nessie.stopSwimming()
     dataModel.restart()
   }
 
@@ -89,6 +92,7 @@ class AppModel {
       throw AppError.invalidState
     }
     
+    dataModel.nessie.stopSwimming()
     appState = .caught
   }
 
@@ -97,6 +101,7 @@ class AppModel {
       throw AppError.invalidState
     }
 
+    dataModel.nessie.stopSwimming()
     appState = .completed
   }
 }

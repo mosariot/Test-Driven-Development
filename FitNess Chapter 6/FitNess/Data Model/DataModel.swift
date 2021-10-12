@@ -50,6 +50,8 @@ class DataModel {
   // MARK: - Nessie
   let nessie = Nessie()
   var distance: Double = 0
+  private var adjustedDistance: Double { return distance + headstart }
+  let headstart = 10.0
 
   var caught: Bool {
     return distance > 0 && nessie.distance >= distance

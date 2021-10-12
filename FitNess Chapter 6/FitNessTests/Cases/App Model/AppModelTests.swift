@@ -56,6 +56,11 @@ class AppModelTests: XCTestCase {
     givenGoalSet()
     try! sut.start()
   }
+  
+  func givenPaused() {
+    givenInProgress()
+    sut.pause()
+  }
 
   func givenCompleteReady() {
     sut.dataModel.setToComplete()
@@ -308,5 +313,52 @@ class AppModelTests: XCTestCase {
     
     // then
     XCTAssertTrue(mockPedometer.stopped)
+  }
+  
+  // MARK: - Nessie
+  func testNessie_whenAppModelPaused_isSleeping() {
+    // given
+    givenInProgress()
+    
+    // when
+    sut.pause()
+    
+    // then
+    XCTAssertTrue(sut.dataModel.nessie.isSleeping)
+  }
+  
+  func testNessie_whenAppModelRestarts_isNotSleeping() {
+    // given
+    givenPaused()
+    
+    // when
+    try! sut.start()
+    
+    // then
+    XCTAssertFalse(sut.dataModel.nessie.isSleeping)
+  }
+  
+  func testAppModel_whenCaught_stopsNessie() {
+    // given
+    givenInProgress()
+    givenCaughtReady()
+    
+    // when
+    sut.setToCaught()
+    
+    // then
+    XCTAssertTrue(sut.dataModel.nessie.isSleeping)
+  }
+  
+  func testAppModel_whenCompleted_stopsNessie() {
+    // given
+    givenInProgress()
+    givenCompleteReady()
+    
+    // when
+    sut.setToComplete()
+    
+    // then
+    XCTAssertTrue(sut.dataModel.nessie.isSleeping)
   }
 }

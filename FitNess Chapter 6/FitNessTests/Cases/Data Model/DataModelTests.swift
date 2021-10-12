@@ -256,7 +256,7 @@ class DataModelTests: XCTestCase {
 
   func testWhenNessieHalfway_warningNotificationGenerated() {
     // given
-    sut.distance = 100
+    sut.distance = 100 - sut.headstart
     let exp = givenExpectationForNotification(alert: .nessie50Percent)
 
     // when
@@ -268,7 +268,7 @@ class DataModelTests: XCTestCase {
 
   func testWhenNessieAlmostCaughtUp_warningNotificationGenerated() {
     // given
-    sut.distance = 100
+    sut.distance = 100 - sut.headstart
     let exp = givenExpectationForNotification(alert: .nessie90Percent)
 
     // when
@@ -280,7 +280,7 @@ class DataModelTests: XCTestCase {
 
   func testNessieCatchesUp_allNotificationsSent() {
     // given
-    sut.distance = 80
+    sut.distance = 80 - sut.headstart
     let expectations = [
       givenExpectationForNotification(alert: .nessie50Percent),
       givenExpectationForNotification(alert: .nessie90Percent),

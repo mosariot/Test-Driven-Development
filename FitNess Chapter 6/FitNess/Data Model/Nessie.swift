@@ -34,14 +34,18 @@ class Nessie {
 
   let velocity: Double = 9.5 // m/s
   var timer: Timer?
+  
+  private(set) var isSleeping = true
 
   func startSwimming() {
     timer = Timer(timeInterval: 1, target: self, selector: #selector(incrementDistance), userInfo: nil, repeats: true)
     RunLoop.main.add(timer!, forMode: RunLoop.Mode.default)
+    isSleeping = false
   }
 
   func stopSwimming() {
     timer?.invalidate()
+    isSleeping = true
   }
 
   @objc func incrementDistance() {
