@@ -52,6 +52,8 @@
 		9581B4B52316F3D200A78286 /* LogoNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B4B42316F3D200A78286 /* LogoNavigationItem.swift */; };
 		9581B4B72316F44400A78286 /* LogoNavigationItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B4B62316F44300A78286 /* LogoNavigationItemTests.swift */; };
 		9581B4B92316F48E00A78286 /* DecodableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B4B82316F48E00A78286 /* DecodableTestCase.swift */; };
+		9F8E4A102716E873006D7834 /* DogPatchClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */; };
+		9F8E4A122716E8E3006D7834 /* DogPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A112716E8E3006D7834 /* DogPatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		9581B4B42316F3D200A78286 /* LogoNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoNavigationItem.swift; sourceTree = "<group>"; };
 		9581B4B62316F44300A78286 /* LogoNavigationItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoNavigationItemTests.swift; sourceTree = "<group>"; };
 		9581B4B82316F48E00A78286 /* DecodableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodableTestCase.swift; sourceTree = "<group>"; };
+		9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPatchClientTests.swift; sourceTree = "<group>"; };
+		9F8E4A112716E8E3006D7834 /* DogPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +442,7 @@
 		42D837B122B6CE040036C5DD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9F8E4A112716E8E3006D7834 /* DogPatch.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 		42F8CDA822D8A585000D7027 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				9581B4AD2316F32D00A78286 /* StoryboardCreatable.swift in Sources */,
 				9581B4B32316F35D00A78286 /* UIViewController+NibCreatable.swift in Sources */,
 				9581B4B52316F3D200A78286 /* LogoNavigationItem.swift in Sources */,
+				9F8E4A122716E8E3006D7834 /* DogPatch.swift in Sources */,
 				9581B4AC2316F32D00A78286 /* UIViewController+StoryboardCreatable.swift in Sources */,
 				4270357322B6FA98001080B1 /* ListingCell.swift in Sources */,
 				42D837BE22B6DAD50036C5DD /* User.swift in Sources */,
@@ -628,6 +635,7 @@
 				424E578822E0D87200C96D45 /* TimeInterval+Calendar.swift in Sources */,
 				427CCB0622BC72C900F92FF7 /* UIView+NibCreatableTests.swift in Sources */,
 				427CCAFD22BC705600F92FF7 /* TestViewController.swift in Sources */,
+				9F8E4A102716E873006D7834 /* DogPatchClientTests.swift in Sources */,
 				420A276522E485C000ECCA13 /* Data+JSONFile.swift in Sources */,
 				4261B59C22D74D1700E5824D /* TestTableViewCell.swift in Sources */,
 				424E576D22E0C23700C96D45 /* UserTests.swift in Sources */,
