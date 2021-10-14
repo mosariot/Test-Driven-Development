@@ -41,20 +41,31 @@ class DogPatchClient {
   
   func getDogs(completion: @escaping ([Dog]?, Error?) -> Void) -> URLSessionDataTask {
     let url = URL(string: "dogs", relativeTo: baseURL)!
-    let task = session.dataTask(with: url) { data, response, error in
+    let task = session.dataTask(with: url) { [weak self] data, response, error in
+      guard let self = self else { return }
       guard let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil, let data = data else {
-        completion(nil, error)
+        self.dispatchResult(error: error, completion: completion)
         return
       }
         let decoder = JSONDecoder()
       do {
         let dogs = try decoder.decode([Dog].self, from: data)
-        completion(dogs, nil)
+        self.dispatchResult(models: dogs, completion: completion)
       } catch {
-        completion(nil, error)
+        self.dispatchResult(error: error, completion: completion)
       }
     }
     task.resume()
     return task
+  }
+  
+  private func dispatchResult<T>(models: T? = nil, error: Error? = nil, completion: @escaping (T?, Error?) -> Void) {
+    guard let responseQueue = responseQueue else {
+      completion(models, error)
+      return
+    }
+    responseQueue.async {
+      completion(models, error)
+    }
   }
 }
