@@ -55,6 +55,10 @@
 		9F8E4A102716E873006D7834 /* DogPatchClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */; };
 		9F8E4A122716E8E3006D7834 /* DogPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A112716E8E3006D7834 /* DogPatch.swift */; };
 		9F8E4A1527199DEC006D7834 /* MockDogPatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A1427199DEC006D7834 /* MockDogPatchService.swift */; };
+		9F8E4A17271C76E1006D7834 /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A16271C76E1006D7834 /* ImageClient.swift */; };
+		9F8E4A19271C77EC006D7834 /* ImageClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A18271C77EC006D7834 /* ImageClientTests.swift */; };
+		9F8E4A1B271C7A62006D7834 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A1A271C7A62006D7834 /* MockSession.swift */; };
+		9F8E4A1D271C7A71006D7834 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E4A1C271C7A71006D7834 /* MockURLSessionDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +124,10 @@
 		9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPatchClientTests.swift; sourceTree = "<group>"; };
 		9F8E4A112716E8E3006D7834 /* DogPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPatch.swift; sourceTree = "<group>"; };
 		9F8E4A1427199DEC006D7834 /* MockDogPatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDogPatchService.swift; sourceTree = "<group>"; };
+		9F8E4A16271C76E1006D7834 /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
+		9F8E4A18271C77EC006D7834 /* ImageClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClientTests.swift; sourceTree = "<group>"; };
+		9F8E4A1A271C7A62006D7834 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		9F8E4A1C271C7A71006D7834 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8E4A112716E8E3006D7834 /* DogPatch.swift */,
+				9F8E4A16271C76E1006D7834 /* ImageClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -484,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8E4A0F2716E873006D7834 /* DogPatchClientTests.swift */,
+				9F8E4A18271C77EC006D7834 /* ImageClientTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -492,6 +502,8 @@
 			isa = PBXGroup;
 			children = (
 				9F8E4A1427199DEC006D7834 /* MockDogPatchService.swift */,
+				9F8E4A1A271C7A62006D7834 /* MockSession.swift */,
+				9F8E4A1C271C7A71006D7834 /* MockURLSessionDataTask.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -617,6 +629,7 @@
 				4270357322B6FA98001080B1 /* ListingCell.swift in Sources */,
 				42D837BE22B6DAD50036C5DD /* User.swift in Sources */,
 				42335BEF22BD166800E21A72 /* UIView+ApplyShadow.swift in Sources */,
+				9F8E4A17271C76E1006D7834 /* ImageClient.swift in Sources */,
 				9581B4B12316F35D00A78286 /* UIView+NibCreatable.swift in Sources */,
 				42335BF822BD1D7A00E21A72 /* UITableViewCell+Identifier.swift in Sources */,
 				9581B4B22316F35D00A78286 /* NibCreatable.swift in Sources */,
@@ -637,12 +650,15 @@
 				424E576922E0B1C600C96D45 /* DogTests.swift in Sources */,
 				42335BF222BD179600E21A72 /* UIView+ApplyShaddowTests.swift in Sources */,
 				9581B4B72316F44400A78286 /* LogoNavigationItemTests.swift in Sources */,
+				9F8E4A1D271C7A71006D7834 /* MockURLSessionDataTask.swift in Sources */,
 				9F8E4A1527199DEC006D7834 /* MockDogPatchService.swift in Sources */,
 				424E577A22E0C47A00C96D45 /* XCTAssertEqualToAny.swift in Sources */,
 				42A255A522BD0E7600C744D9 /* UIViewController+StoryboardCreatableTests.swift in Sources */,
 				427CCB0822BC73AC00F92FF7 /* UIViewController+NibCreatableTests.swift in Sources */,
 				9581B4B92316F48E00A78286 /* DecodableTestCase.swift in Sources */,
+				9F8E4A19271C77EC006D7834 /* ImageClientTests.swift in Sources */,
 				424E577E22E0D10C00C96D45 /* DogViewModelTests.swift in Sources */,
+				9F8E4A1B271C7A62006D7834 /* MockSession.swift in Sources */,
 				4261B59A22D74CF500E5824D /* UITableViewCell+Identifier.swift in Sources */,
 				424E578822E0D87200C96D45 /* TimeInterval+Calendar.swift in Sources */,
 				427CCB0622BC72C900F92FF7 /* UIView+NibCreatableTests.swift in Sources */,

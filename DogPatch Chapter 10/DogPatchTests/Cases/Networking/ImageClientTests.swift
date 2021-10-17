@@ -1,0 +1,208 @@
+/// Copyright (c) 2021 Razeware LLC
+/// 
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+/// distribute, sublicense, create a derivative work, and/or sell copies of the
+/// Software in any work that is designed, intended, or marketed for pedagogical or
+/// instructional purposes related to programming, coding, application development,
+/// or information technology.  Permission for such use, copying, modification,
+/// merger, publication, distribution, sublicensing, creation of derivative works,
+/// or sale is expressly withheld.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+
+@testable import DogPatch
+import XCTest
+
+class ImageClientTests: XCTestCase {
+  var mockSession: MockURLSession!
+  var sut: ImageClient!
+  var service: ImageService { sut as ImageService }
+  var url: URL!
+  
+  var receivedDataTask: MockURLSessionDataTask!
+  var receivedError: Error!
+  var receivedImage: UIImage!
+  var expectedImage: UIImage!
+  var expectedError: Error!
+  
+  // MARK: - Test Lyfecycle
+  override func setUp() {
+    super.setUp()
+    mockSession = MockURLSession()
+    sut = ImageClient(responseQueue: nil, session: mockSession)
+    url = URL(string: "https://example.com/image")!
+  }
+  
+  override func tearDown() {
+    mockSession = nil
+    sut = nil
+    url = nil
+    receivedDataTask = nil
+    receivedError = nil
+    receivedImage = nil
+    expectedImage = nil
+    expectedError = nil
+    super.tearDown()
+  }
+  
+  // MARK: - Given
+  func givenExpectedImage() {
+    expectedImage = UIImage(named: "happy_dog")
+  }
+  
+  func givenExpectedError() {
+    expectedError = NSError(domain: "com.example", code: 42, userInfo: nil)
+  }
+  
+  // MARK: - When
+  func whenDownloadImage(image: UIImage? = nil, error: Error? = nil) {
+    receivedDataTask = sut.downloadImage(fromURL: url) { image, error in
+      self.receivedImage = image
+      self.receivedError = error
+    } as? MockURLSessionDataTask
+    
+    if let receivedDataTask = receivedDataTask {
+      if let image = image {
+        receivedDataTask.completionHandler(image.pngData(), nil, nil)
+      } else if let error = error {
+        receivedDataTask.completionHandler(nil, nil, error)
+      }
+    }
+  }
+  
+  // MARK: - Then
+  func verifyDownloadImageDispatched(image: UIImage? = nil, error: Error? = nil, line: UInt = #line) {
+    mockSession.givenDispatchQueue()
+    sut = ImageClient(responseQueue: .main, session: mockSession)
+    
+    var receivedThread: Thread!
+    let expectation = self.expectation(description: "Completion wasn't called")
+    
+    // when
+    let dataTask = sut.downloadImage(fromURL: url, completion: { _, _ in
+      receivedThread = Thread.current
+      expectation.fulfill()
+    }) as! MockURLSessionDataTask
+    
+    dataTask.completionHandler(image?.pngData(), nil, error)
+    
+    // then
+    waitForExpectations(timeout: 0.2) { _ in
+      XCTAssertTrue(receivedThread.isMainThread, line: line)
+    }
+  }
+  
+  // MARK: - Static Properties - Tests
+  func test_shared_setsResponseQueue() {
+    XCTAssertEqual(ImageClient.shared.responseQueue, .main)
+  }
+  
+  func test_shared_setsSession() {
+    XCTAssertEqual(ImageClient.shared.session, .shared)
+  }
+  
+  // MARK: - Object Lifecycle - Tests
+  func test_init_setsChachedImageForURL() {
+    XCTAssertEqual(sut.cachedImageForURL, [:])
+  }
+  
+  func test_init_setsChachedTaskForImageView() {
+    XCTAssertEqual(sut.cachedTaskForImageView, [:])
+  }
+  
+  func test_init_setsResponseQueue() {
+    XCTAssertEqual(sut.responseQueue, nil)
+  }
+  
+  func test_init_setsSession() {
+    XCTAssertEqual(sut.session, mockSession)
+  }
+  
+  // MARK: - ImageService - Tests
+  func test_conformsTo_imageService() {
+    XCTAssertTrue((sut as AnyObject) is ImageService)
+  }
+  
+  func test_imageService_declaresDownloadImage() {
+    _ = service.downloadImage(fromURL: url) { _, _ in }
+  }
+  
+  func test_imageService_declaresSetImageOnImageView() {
+    // given
+    let imageView = UIImageView()
+    let placeholder = UIImage(named: "image_placeholder")!
+    
+    // then
+    service.setImage(on: imageView, fromURL: url, withPlaceholder: placeholder)
+  }
+  
+  func test_downloadImage_createsExpectedDataTask() {
+    // when
+    whenDownloadImage()
+    
+    // then
+    XCTAssertEqual(receivedDataTask.url, url)
+  }
+  
+  func test_downloadImage_callsResumeOnDataTask() {
+    // when
+    whenDownloadImage()
+    
+    // then
+    XCTAssertTrue(receivedDataTask.calledResume)
+  }
+  
+  func test_downloadImage_givenImage_callsCompletionWithImage() {
+    // given
+    givenExpectedImage()
+    
+    // when
+    whenDownloadImage(image: expectedImage)
+    
+    // then
+    XCTAssertEqual(expectedImage.pngData(), receivedImage.pngData())
+  }
+  
+  func test_downloadImage_givenError_callsCompletionWithError() {
+    // given
+    let expectedError = NSError(domain: "com.example", code: 42, userInfo: nil)
+    
+    // when
+    whenDownloadImage(error: expectedError)
+    
+    // then
+    XCTAssertEqual(receivedError as NSError, expectedError)
+  }
+  
+  func test_downloadImage_givenImage_dispatchesToResponseQueue() {
+    // given
+    givenExpectedImage()
+    
+    // then
+    verifyDownloadImageDispatched(image: expectedImage)
+  }
+  
+  func test_downloadImage_givenError_dispatchesToResponseQueue() {
+    // given
+    givenExpectedError()
+    
+    // then
+    verifyDownloadImageDispatched(error: expectedError)
+  }
+}
