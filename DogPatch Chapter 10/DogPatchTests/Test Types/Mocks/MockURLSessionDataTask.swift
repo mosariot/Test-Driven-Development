@@ -32,6 +32,7 @@ class MockURLSessionDataTask: URLSessionDataTask {
   var completionHandler: (Data?, URLResponse?, Error?) -> Void
   var url: URL
   var calledResume = false
+  var calledCancel = false
   
   init(completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void, url: URL, queue: DispatchQueue?) {
     if let queue = queue {
@@ -49,5 +50,9 @@ class MockURLSessionDataTask: URLSessionDataTask {
   
   override func resume() {
     calledResume = true
+  }
+  
+  override func cancel() {
+    calledCancel = true
   }
 }

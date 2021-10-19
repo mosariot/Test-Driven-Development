@@ -34,6 +34,7 @@ class ImageClientTests: XCTestCase {
   var sut: ImageClient!
   var service: ImageService { sut as ImageService }
   var url: URL!
+  var imageView: UIImageView!
   
   var receivedDataTask: MockURLSessionDataTask!
   var receivedError: Error!
@@ -47,6 +48,7 @@ class ImageClientTests: XCTestCase {
     mockSession = MockURLSession()
     sut = ImageClient(responseQueue: nil, session: mockSession)
     url = URL(string: "https://example.com/image")!
+    imageView = UIImageView()
   }
   
   override func tearDown() {
@@ -58,6 +60,7 @@ class ImageClientTests: XCTestCase {
     receivedImage = nil
     expectedImage = nil
     expectedError = nil
+    imageView = nil
     super.tearDown()
   }
   
@@ -84,6 +87,13 @@ class ImageClientTests: XCTestCase {
         receivedDataTask.completionHandler(nil, nil, error)
       }
     }
+  }
+  
+  func whenSetImage() {
+    givenExpectedImage()
+    sut.setImage(on: imageView, fromURL: url, withPlaceholder: nil)
+    receivedDataTask = sut.cachedTaskForImageView[imageView] as? MockURLSessionDataTask
+    receivedDataTask.completionHandler(expectedImage.pngData(), nil, nil)
   }
   
   // MARK: - Then
@@ -204,5 +214,106 @@ class ImageClientTests: XCTestCase {
     
     // then
     verifyDownloadImageDispatched(error: expectedError)
+  }
+  
+  // MARK: - Cashing - Tests
+  func test_downloadImage_givenImage_cachesImage() {
+    // given
+    givenExpectedImage()
+    
+    // when
+    whenDownloadImage(image: expectedImage)
+    
+    // then
+    XCTAssertEqual(sut.cachedImageForURL[url]?.pngData(), expectedImage.pngData())
+  }
+  
+  func test_downloadImage_givenChacedImage_returnsNilDataTask() {
+    // given
+    givenExpectedImage()
+    
+    // when
+    whenDownloadImage(image: expectedImage)
+    whenDownloadImage(image: expectedImage)
+    
+    // then
+    XCTAssertNil(receivedDataTask)
+  }
+  
+  func test_downloadImage_givenCachedImage_callsCompletionWithImage() {
+    // given
+    givenExpectedImage()
+    
+    // when
+    whenDownloadImage(image: expectedImage)
+    receivedImage = nil
+    
+    whenDownloadImage(image: expectedImage)
+    
+    // when
+    XCTAssertEqual(receivedImage.pngData(), expectedImage.pngData())
+  }
+  
+  // MARK: - Setting ImageView - Tests
+  func test_setImageOnImageView_cancelsExistingDataTask() {
+    // given
+    let dataTask = MockURLSessionDataTask(completionHandler: { _, _, _ in }, url: url, queue: nil)
+    sut.cachedTaskForImageView[imageView] = dataTask
+    
+    // when
+    sut.setImage(on: imageView, fromURL: url, withPlaceholder: nil)
+    
+    // then
+    XCTAssertTrue(dataTask.calledCancel)
+  }
+  
+  func test_setImageOnImageView_setsPlaceholderOnImageView() {
+    // given
+    givenExpectedImage()
+    
+    // when
+    sut.setImage(on: imageView, fromURL: url, withPlaceholder: expectedImage)
+    
+    // then
+    XCTAssertEqual(imageView.image?.pngData(), expectedImage.pngData())
+  }
+  
+  func test_setImageOnImageView_cachesDownloadTask() {
+    // when
+    sut.setImage(on: imageView, fromURL: url, withPlaceholder: nil)
+    
+    // then
+    receivedDataTask = sut.cachedTaskForImageView[imageView] as? MockURLSessionDataTask
+    XCTAssertEqual(receivedDataTask?.url, url)
+  }
+  
+  func test_setImageOnImageView_onCompetionRemovesCachedTask() {
+    // when
+    whenSetImage()
+    
+    // then
+    XCTAssertNil(sut.cachedTaskForImageView[imageView])
+  }
+  
+  func test_setImageOnImageView_onCompletionsSetsImage() {
+    // when
+    whenSetImage()
+    
+    // then
+    XCTAssertEqual(imageView.image?.pngData(), expectedImage.pngData())
+  }
+  
+  func test_setImageOnImageView_givenError_doesntSetImage() {
+    // given
+    givenExpectedImage()
+    givenExpectedError()
+    
+    // when
+    sut.setImage(on: imageView, fromURL: url, withPlaceholder: expectedImage)
+    receivedDataTask = sut.cachedTaskForImageView[imageView] as? MockURLSessionDataTask
+    receivedDataTask.completionHandler(nil, nil, expectedError)
+    
+    // then
+    XCTAssertEqual(imageView.image?.pngData(), expectedImage.pngData())
   }
 }

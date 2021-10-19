@@ -29,7 +29,7 @@
 import UIKit
 
 protocol ImageService {
-  func downloadImage(fromURL: URL, completion: @escaping (UIImage?, Error?) -> Void) -> URLSessionDataTask
+  func downloadImage(fromURL: URL, completion: @escaping (UIImage?, Error?) -> Void) -> URLSessionDataTask?
   func setImage(on: UIImageView, fromURL: URL, withPlaceholder: UIImage?)
 }
 
@@ -55,10 +55,15 @@ class ImageClient {
 }
 
 extension ImageClient: ImageService {
-  func downloadImage(fromURL: URL, completion: @escaping (UIImage?, Error?) -> Void) -> URLSessionDataTask {
-    let dataTask = session.dataTask(with: fromURL) { [weak self] data, response, error in
+  func downloadImage(fromURL url: URL, completion: @escaping (UIImage?, Error?) -> Void) -> URLSessionDataTask? {
+    if let image = cachedImageForURL[url] {
+      completion(image, nil)
+      return nil
+    }
+    let dataTask = session.dataTask(with: url) { [weak self] data, response, error in
       guard let self = self else { return }
       if let data = data, let image = UIImage(data: data) {
+        self.cachedImageForURL[url] = image
         self.dispatch(image: image, completion: completion)
       } else {
         self.dispatch(error: error, completion: completion)
@@ -78,7 +83,17 @@ extension ImageClient: ImageService {
     }
   }
   
-  func setImage(on: UIImageView, fromURL: URL, withPlaceholder: UIImage?) {
-    
+  func setImage(on imageView: UIImageView, fromURL url: URL, withPlaceholder placeholder: UIImage?) {
+    cachedTaskForImageView[imageView]?.cancel()
+    imageView.image = placeholder
+    cachedTaskForImageView[imageView] = downloadImage(fromURL: url, completion: { [weak self] image, error in
+      guard let self = self else { return }
+      self.cachedTaskForImageView[imageView] = nil
+      guard let image = image else {
+        print("Set Image failed with error: " + String(describing: error))
+        return
+      }
+      imageView.image = image
+    })
   }
 }
