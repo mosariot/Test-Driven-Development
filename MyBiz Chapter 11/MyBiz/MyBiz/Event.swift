@@ -33,6 +33,7 @@ enum EventType: String, Codable {
   case Appointment
   case Holiday
   case DomesticHoliday = "DayOff"
+  case Birthday
   
   var symbol: String {
     switch self {
@@ -44,6 +45,8 @@ enum EventType: String, Codable {
       return "🎉"
     case .DomesticHoliday:
       return "🎉"
+    case .Birthday:
+      return "🎂"
     }
   }
 }
