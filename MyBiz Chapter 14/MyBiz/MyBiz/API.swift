@@ -28,11 +28,15 @@
 
 import Foundation
 
-let UserLoggedOutNotification = Notification.Name("user logged out")
-let UserLoggedInNotification = Notification.Name("user logged in")
+let UserLoggedOutNotification =
+  Notification.Name("user logged out")
+let UserLoggedInNotification =
+  Notification.Name("user logged in")
+
 enum UserNotificationKey: String {
-  case userID
+  case userId
 }
+
 
 protocol APIDelegate: AnyObject {
   
@@ -106,7 +110,10 @@ class API {
     self.token = token
     Logger.logDebug("user \(token.userID)")
     DispatchQueue.main.async {
-      let note = Notification(name: UserLoggedInNotification, object: self, userInfo: [UserNotificationKey.userID: token.userID.uuidString])
+      let note = Notification(name: UserLoggedInNotification,
+                              object: self,
+                              userInfo: [UserNotificationKey.userId:
+                                token.userID.uuidString])
       NotificationCenter.default.post(note)
       self.delegate?.loginSucceeded(userId: token.userID.uuidString)
     }

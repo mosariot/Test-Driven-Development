@@ -25,7 +25,6 @@ class ErrorViewControllerTests: XCTestCase {
   }
   
   func whenDefault() {
-    sut.secondaryAction = .init(title: "Try Again", action: {})
     sut.loadViewIfNeeded()
   }
   

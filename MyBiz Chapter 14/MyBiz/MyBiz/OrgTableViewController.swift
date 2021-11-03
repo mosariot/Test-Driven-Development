@@ -34,8 +34,8 @@ class OrgTableViewController: UITableViewController {
   var api: API { return (UIApplication.shared.delegate as! AppDelegate).api }
   
   var topEmployee = ""
-  var org = [Employee]()
-  var rows = [(String, Int)]()
+  var org: [Employee] = []
+  var rows: [(String, Int)] = []
   var expandedRows = Set<String>()
   let skin: Skin = .orgChart
   

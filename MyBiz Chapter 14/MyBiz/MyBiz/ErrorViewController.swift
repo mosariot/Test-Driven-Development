@@ -29,20 +29,19 @@
 import UIKit
 
 class ErrorViewController: UIViewController {
-  
+
   struct SecondaryAction {
     let title: String
     let action: () -> ()
   }
-  
-  var secondaryAction: SecondaryAction? = nil
-  
+
   @IBOutlet weak var okButton: UIButton!
   @IBOutlet weak var secondaryButton: UIButton!
   @IBOutlet weak var alertView: UIView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   
+  var secondaryAction: SecondaryAction? = nil
   var alertTitle: String = ""
   var subtitle: String? = nil
   var skin: Skin? = nil
@@ -54,17 +53,8 @@ class ErrorViewController: UIViewController {
     alertView.layer.masksToBounds = true
 
     updateAction()
-    
     updateTitles()
     updateSkin()
-  }
-  
-  private func updateAction() {
-    guard let action = secondaryAction else {
-      secondaryButton.removeFromSuperview()
-      return
-    }
-    secondaryButton.setTitle(action.title, for: .normal)
   }
   
   fileprivate func updateTitles() {
@@ -81,6 +71,14 @@ class ErrorViewController: UIViewController {
     Styler.shared.style(background: alertView,
                         buttons: [okButton, secondaryButton],
                         with: skin)
+  }
+
+  private func updateAction() {
+    guard let action = secondaryAction else {
+      secondaryButton.removeFromSuperview()
+      return
+    }
+    secondaryButton.setTitle(action.title, for: .normal)
   }
   
   func set(title: String, subtitle: String?) {

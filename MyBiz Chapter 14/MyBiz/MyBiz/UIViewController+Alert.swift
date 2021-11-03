@@ -26,11 +26,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
 import UIKit
 
 extension UIViewController {
-  func showAlert(title: String, subtitle: String?, action: ErrorViewController.SecondaryAction? = nil, skin: Skin? = nil) {
+  func showAlert(title: String,
+                 subtitle: String?,
+                 action: ErrorViewController.SecondaryAction? = nil,
+                 skin: Skin? = nil) {
     let alertController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "error") as! ErrorViewController
     alertController.set(title: title, subtitle: subtitle)
     alertController.modalPresentationStyle = .overCurrentContext

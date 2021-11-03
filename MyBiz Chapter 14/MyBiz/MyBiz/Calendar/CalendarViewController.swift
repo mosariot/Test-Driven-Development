@@ -33,8 +33,8 @@ class CalendarViewController: UIViewController {
   @IBOutlet weak var calendarView: JTAppleCalendarView!
   
   var api: API = (UIApplication.shared.delegate as! AppDelegate).api
-  var events: [Event] = []
   var model: CalendarModel!
+  var events: [Event] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,14 +42,9 @@ class CalendarViewController: UIViewController {
     model = CalendarModel(api: api)
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    loadEvents()
-  }
-  
   func loadEvents() {
-    model.getAll { [weak self] res in
-      switch res {
+    model.getAll { [weak self] result in
+      switch result {
       case .success(let events):
         self?.events = events
         self?.calendarView.reloadData()
@@ -57,6 +52,11 @@ class CalendarViewController: UIViewController {
         self?.showAlert(title: "Could not load events", subtitle: error.localizedDescription)
       }
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    loadEvents()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,8 +75,10 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
   func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
     let startDate = Date(timeIntervalSinceNow: -.days(60))
     let endDate = Date(timeIntervalSinceNow: .days(90))
-    return ConfigurationParameters(startDate: startDate, endDate: endDate)
+    let firstDayOfWeek = AppDelegate.configuration.firstDayOfWeek
+    return ConfigurationParameters(startDate: startDate, endDate: endDate, firstDayOfWeek: firstDayOfWeek)
   }
+
 }
 
 extension CalendarViewController: JTAppleCalendarViewDelegate {

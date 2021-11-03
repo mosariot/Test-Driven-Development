@@ -27,31 +27,17 @@
 /// THE SOFTWARE.
 
 import Foundation
-import UIKit
+@testable import MyBiz
 
-struct Report: Codable {
-  let event: String
-  let timestamp: Date
-}
+class SpyAPI: API {
+  var loginCalled = false
 
-class Analytics {
-  
-  static let shared = Analytics()
-  
-  enum Event: String {
-    case loginShown
-    case loginButtonClicked
-    case announcementsShown
-    case settingShown
-    case orgChartShown
-    case purchasesShown
-    case calendarShown
-    case fullDayShown
+  init(api: API) {
+    super.init(server: api.server)
   }
-  
-  var api: API { return (UIApplication.shared.delegate as! AppDelegate).api }
-  
-  func logEvent(_ event: Event) {
-    
+
+  override func login(username: String, password: String) {
+    loginCalled = true
+    super.login(username: username, password: password)
   }
 }

@@ -38,16 +38,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var userId: String?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+    // Override point for customization after application launch.
     AppDelegate.configuration = Configuration.load()
-    
-    setupListeners()
-    
     api = API(server: AppDelegate.configuration.server)
+
     let loginViewController = window?.rootViewController as? LoginViewController
     loginViewController?.api = api
-    
+
+    setupListeners()
     return true
+  }
+
+  func setupListeners() {
+    NotificationCenter.default
+      .addObserver(forName: UserLoggedOutNotification,
+                   object: nil,
+                   queue: OperationQueue.main) { _ in
+                    self.showLogin()
+    }
+    NotificationCenter.default
+      .addObserver(forName: UserLoggedInNotification,
+                   object: nil,
+                   queue: OperationQueue.main) { note in
+                    if let userId = note.userInfo?[UserNotificationKey.userId]
+                      as? String {
+                      self.handleLogin(userId: userId)
+                    }
+    }
+  }
+
+  func handleLogin(userId: String) {
+    self.userId = userId
+
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let tabController = storyboard.instantiateViewController(withIdentifier: "tabController")
+    window?.rootViewController = tabController
   }
   
   func showLogin() {
@@ -55,25 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let loginController = storyboard.instantiateViewController(withIdentifier: "login") as? LoginViewController
     loginController?.api = api
     window?.rootViewController = loginController
-  }
-  
-  func setupListeners() {
-    NotificationCenter.default.addObserver(forName: UserLoggedOutNotification, object: nil, queue: .main) { _ in
-      self.showLogin()
-    }
-    NotificationCenter.default.addObserver(forName: UserLoggedInNotification, object: nil, queue: .main) { note in
-      if let userId = note.userInfo?[UserNotificationKey.userID] as? String {
-        self.handleLogin(userID: userId)
-      }
-    }
-  }
-  
-  func handleLogin(userID: String) {
-    self.userId = userID
-    
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    let tabController = storyBoard.instantiateViewController(withIdentifier: "tabController")
-    window?.rootViewController = tabController
   }
 }
 

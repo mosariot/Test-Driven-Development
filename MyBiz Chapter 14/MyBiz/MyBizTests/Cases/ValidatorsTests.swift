@@ -26,29 +26,63 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import XCTest
+@testable import MyBiz
 
-class DayDetailTableViewController: UITableViewController {
-  
-  var events: [Event] = []
-  
-  // MARK: - Table view data source
-  
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return events.count
+class ValidatorsTests: XCTestCase {
+
+  func testString_whenHasAnAt_isAnEmail() {
+    // given
+    let testString = "something@somethingelse"
+
+    // when
+    let isEmail = testString.isEmail
+
+    // then
+    XCTAssertTrue(isEmail)
   }
-  
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    
-    let event = events[indexPath.row]
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .none
-    dateFormatter.timeStyle = .short
-    let start = dateFormatter.string(from: event.date)
-    let end = dateFormatter.string(from: event.date.addingTimeInterval(event.duration))
-    let title = "\(event.type.symbol) \(event.name): \(start) - \(end)"
-    cell.textLabel?.text = title
-    return cell
+
+  func testString_withNoAt_isNotAnEmail() {
+    // given
+    let testString = "just_something"
+
+    // when
+    let isEmail = testString.isEmail
+
+    // then
+    XCTAssertFalse(isEmail)
+  }
+
+  func testString_overTwoMixedCaps_isAPassword() {
+    // given
+    let testString = "a1A"
+
+    // when
+    let isPassword = testString.isValidPassword
+
+    // then
+    XCTAssertTrue(isPassword)
+  }
+
+  func testString_overTwoWithNoMixed_isNotAPassword() {
+    // given
+    let testString = "123"
+
+    // when
+    let isPassword = testString.isValidPassword
+
+    // then
+    XCTAssertFalse(isPassword)
+  }
+
+  func testString_onlyTwoCharacters_isNotAPassword() {
+    // given
+    let testString = "aA"
+
+    // when
+    let isPassword = testString.isValidPassword
+
+    // then
+    XCTAssertFalse(isPassword)
   }
 }

@@ -138,7 +138,7 @@ class CreatePurachaseOrderTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
     if let addToOrder = segue.destination as? AddToOrderTableViewController {
-      var items = [Product : Double]()
+      var items: [Product: Double] = [:]
       poInProgress.purchases.forEach { purchase in
         if let product = products.first(where: { product -> Bool in
           product.productId == purchase.productId
