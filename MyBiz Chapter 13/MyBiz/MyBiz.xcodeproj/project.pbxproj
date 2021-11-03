@@ -68,6 +68,11 @@
 		9F35BCC2272D947500EE1943 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCC1272D947500EE1943 /* CalendarModel.swift */; };
 		9F35BCC3272F27C600EE1943 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCAE272D8EC100EE1943 /* MockAPI.swift */; };
 		9F35BCC527304DC400EE1943 /* CalendarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCC427304DC400EE1943 /* CalendarViewControllerTests.swift */; };
+		9F35BCC7273178FD00EE1943 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCC6273178FD00EE1943 /* LoginViewControllerTests.swift */; };
+		9F35BCCB2732A41F00EE1943 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCCA2732A41F00EE1943 /* APITests.swift */; };
+		9F35BCCD2732AEA400EE1943 /* ErrorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCCC2732AEA400EE1943 /* ErrorViewControllerTests.swift */; };
+		9F35BCCF2732B64100EE1943 /* ErrorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCCE2732B64100EE1943 /* ErrorViewControllerTests.swift */; };
+		9F35BCD12732BE5700EE1943 /* ValidatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35BCD02732BE5700EE1943 /* ValidatorsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +159,11 @@
 		9F35BCBE272D93C700EE1943 /* CalendarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModelTests.swift; sourceTree = "<group>"; };
 		9F35BCC1272D947500EE1943 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		9F35BCC427304DC400EE1943 /* CalendarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerTests.swift; sourceTree = "<group>"; };
+		9F35BCC6273178FD00EE1943 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		9F35BCCA2732A41F00EE1943 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		9F35BCCC2732AEA400EE1943 /* ErrorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewControllerTests.swift; sourceTree = "<group>"; };
+		9F35BCCE2732B64100EE1943 /* ErrorViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewControllerTests.swift; sourceTree = "<group>"; };
+		9F35BCD02732BE5700EE1943 /* ValidatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +298,9 @@
 			isa = PBXGroup;
 			children = (
 				9F35BCAB272D836B00EE1943 /* CalendarViewControllerTests.swift */,
+				9F35BCC6273178FD00EE1943 /* LoginViewControllerTests.swift */,
+				9F35BCCC2732AEA400EE1943 /* ErrorViewControllerTests.swift */,
+				9F35BCD02732BE5700EE1943 /* ValidatorsTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -311,8 +324,10 @@
 		9F35BCBD272D93AB00EE1943 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				9F35BCCA2732A41F00EE1943 /* APITests.swift */,
 				9F35BCBE272D93C700EE1943 /* CalendarModelTests.swift */,
 				9F35BCC427304DC400EE1943 /* CalendarViewControllerTests.swift */,
+				9F35BCCE2732B64100EE1943 /* ErrorViewControllerTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -521,6 +536,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F35BCD12732BE5700EE1943 /* ValidatorsTests.swift in Sources */,
+				9F35BCC7273178FD00EE1943 /* LoginViewControllerTests.swift in Sources */,
+				9F35BCCD2732AEA400EE1943 /* ErrorViewControllerTests.swift in Sources */,
 				9F35BCAF272D8EC100EE1943 /* MockAPI.swift in Sources */,
 				9F35BCAC272D836B00EE1943 /* CalendarViewControllerTests.swift in Sources */,
 			);
@@ -531,7 +549,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F35BCC3272F27C600EE1943 /* MockAPI.swift in Sources */,
+				9F35BCCF2732B64100EE1943 /* ErrorViewControllerTests.swift in Sources */,
 				9F35BCBF272D93C700EE1943 /* CalendarModelTests.swift in Sources */,
+				9F35BCCB2732A41F00EE1943 /* APITests.swift in Sources */,
 				9F35BCC527304DC400EE1943 /* CalendarViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
