@@ -27,21 +27,20 @@
 /// THE SOFTWARE.
 
 import UIKit
+import UIHelpers
 
-class LoginViewController: UIViewController {
+public class LoginViewController: UIViewController {
   
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var signInButton: UIButton!
   
-  var api: API!
+  public var api: LoginAPI!
   let skin: Skin = .login
   
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     
-    api.delegate = self
-
     Styler.shared.style(background: view, buttons: [signInButton], with: skin)
   }
   
@@ -53,24 +52,15 @@ class LoginViewController: UIViewController {
       showAlert(title: "Invalid Username or Password", subtitle: "Check the username or password")
       return
     }
-    api.login(username: username, password: password)
+    api.login(username: username, password: password) { result in
+      if case .failure(let error) = result {
+        self.loginFailed(error: error)
+      }
+    }
   }
 }
 
-extension LoginViewController: APIDelegate {
-  func eventsLoaded(events: [Event]) {}
-  func eventsFailed(error: Error) {}
-  func orgLoaded(org: [Employee]) {}
-  func orgFailed(error: Error) {}
-  func announcementsFailed(error: Error) {}
-  func announcementsLoaded(announcements: [Announcement]) {}
-  func productsLoaded(products: [Product]) {}
-  func productsFailed(error: Error) {}
-  func purchasesLoaded(purchases: [PurchaseOrder]) {}
-  func purchasesFailed(error: Error) {}
-  func userLoaded(user: UserInfo) {}
-  func userFailed(error: Error) {}
-  
+extension LoginViewController {
   func loginFailed(error: Error) {
     let retryAction = ErrorViewController.SecondaryAction(
                         title: "Try Again") { [weak self] in
@@ -83,6 +73,4 @@ extension LoginViewController: APIDelegate {
               action: retryAction,
               skin: .loginAlert)
   }
-
-  func loginSucceeded(userId: String) {}
 }

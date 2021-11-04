@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import UIKit
+import Login
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,9 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AppDelegate.configuration = Configuration.load()
     api = API(server: AppDelegate.configuration.server)
 
-    let loginViewController = window?.rootViewController as? LoginViewController
-    loginViewController?.api = api
-
+    showLogin()
     setupListeners()
     return true
   }
@@ -76,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func showLogin() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let storyboard = UIStoryboard(name: "Login", bundle: Bundle(for: LoginViewController.self))
     let loginController = storyboard.instantiateViewController(withIdentifier: "login") as? LoginViewController
     loginController?.api = api
     window?.rootViewController = loginController

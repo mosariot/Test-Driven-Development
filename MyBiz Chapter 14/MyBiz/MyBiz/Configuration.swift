@@ -27,17 +27,9 @@
 /// THE SOFTWARE.
 
 import Foundation
+import UIHelpers
 
 struct Configuration: Codable {
-
-  struct UI: Codable {
-    struct Button: Codable {
-      let cornerRadius: Double
-      let borderWidth: Double
-    }
-
-    let button: Button
-  }
 
   struct BusinessRules: Codable {
     let maxPOExpense: Double
@@ -45,7 +37,7 @@ struct Configuration: Codable {
 
   let server: String
   let debug: Bool
-  let ui: UI
+  let ui: UIConfiguration
   let rules: BusinessRules
 }
 

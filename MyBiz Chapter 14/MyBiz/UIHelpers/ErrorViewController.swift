@@ -28,11 +28,16 @@
 
 import UIKit
 
-class ErrorViewController: UIViewController {
+public class ErrorViewController: UIViewController {
 
-  struct SecondaryAction {
+  public struct SecondaryAction {
     let title: String
     let action: () -> ()
+
+    public init(title: String, action: @escaping () -> ()) {
+      self.title = title
+      self.action = action
+    }
   }
 
   @IBOutlet weak var okButton: UIButton!
@@ -45,8 +50,8 @@ class ErrorViewController: UIViewController {
   var alertTitle: String = ""
   var subtitle: String? = nil
   var skin: Skin? = nil
-  
-  override func viewDidLoad() {
+
+  public override func viewDidLoad() {
     super.viewDidLoad()
     
     alertView.layer.cornerRadius = 12
@@ -95,7 +100,7 @@ class ErrorViewController: UIViewController {
       dismiss(animated: true)
       action.action()
     } else {
-      Logger.logFatal("no action defined.")
+//      Logger.logFatal("no action defined.")
     }
   }
 }

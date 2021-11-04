@@ -28,12 +28,12 @@
 
 import UIKit
 
-class Styler {
-  static let shared = Styler()
+public class Styler {
+  public static let shared = Styler()
 
-  let configuration = AppDelegate.configuration!
+  public var configuration: UIConfiguration?
 
-  func style(background: UIView? = nil,
+  public func style(background: UIView? = nil,
              buttons: [UIButton]? = nil,
              with skin: Skin
              ) {
@@ -41,23 +41,22 @@ class Styler {
     buttons?.forEach { style(button: $0, skin: skin) }
   }
 
-
-  func style(background: UIView, skin: Skin) {
+  public func style(background: UIView, skin: Skin) {
     background.backgroundColor = skin.backgroundColor
   }
 
-  func style(button: UIButton, skin: Skin) {
+  public func style(button: UIButton, skin: Skin) {
     if let borderColor = skin.controlBorder {
-//      button.contentEdgeInsets = UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8)
-      button.layer.cornerRadius = CGFloat(configuration.ui.button.cornerRadius)
-      button.layer.borderWidth = CGFloat(configuration.ui.button.borderWidth)
+      button.contentEdgeInsets = UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8)
+      button.layer.cornerRadius = CGFloat(configuration?.button.cornerRadius ?? 0)
+      button.layer.borderWidth = CGFloat(configuration?.button.borderWidth ?? 0)
       button.layer.borderColor = borderColor.cgColor
     }
     button.backgroundColor = skin.controlBackground
     button.setTitleColor(skin.controlTextColor, for: .normal)
   }
 
-  func style(cell: UITableViewCell, with skin: Skin) {
+  public func style(cell: UITableViewCell, with skin: Skin) {
     cell.backgroundColor = skin.backgroundColor
     for view in cell.contentView.subviews {
       if let label = view as? UILabel {

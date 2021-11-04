@@ -36,8 +36,13 @@ class SpyAPI: API {
     super.init(server: api.server)
   }
 
-  override func login(username: String, password: String) {
+  override func login(username: String,
+                      password: String,
+                      completion: @escaping (Result<String, Error>) -> ()) {
     loginCalled = true
-    super.login(username: username, password: password)
+    super.login(username: username,
+                password: password,
+                completion: completion)
   }
+
 }

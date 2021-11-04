@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import Foundation
+import Login
 
 let UserLoggedOutNotification =
   Notification.Name("user logged out")
@@ -39,9 +40,6 @@ enum UserNotificationKey: String {
 
 
 protocol APIDelegate: AnyObject {
-  
-  func loginFailed(error: Error)
-  func loginSucceeded(userId: String)
   func announcementsFailed(error: Error)
   func announcementsLoaded(announcements: [Announcement])
   func orgLoaded(org: [Employee])
@@ -56,7 +54,7 @@ protocol APIDelegate: AnyObject {
   func userFailed(error: Error)
 }
 
-class API {
+class API: LoginAPI {
   
   let server: String
   let session: URLSession
@@ -69,53 +67,60 @@ class API {
     session = URLSession(configuration: .default)
   }
   
-  func login(username: String, password: String) {
+  func login(username: String,
+             password: String,
+             completion: @escaping (Result<String, Error>) -> ()) {
     let eventsEndpoint = server + "api/users/login"
     let eventsURL = URL(string: eventsEndpoint)!
     var urlRequest = URLRequest(url: eventsURL)
     urlRequest.httpMethod = "POST"
     let data = "\(username):\(password)".data(using: .utf8)!
     let basic = "Basic \(data.base64EncodedString())"
-    urlRequest.addValue(basic, forHTTPHeaderField: "Authorization")
-    let task = session.dataTask(with: urlRequest) { data, _, error in
+    urlRequest.addValue(basic,
+                        forHTTPHeaderField: "Authorization")
+    let task = session.dataTask(with: urlRequest)
+    { data, _, error in
       guard let data = data else {
         if error != nil {
           DispatchQueue.main.async {
-            self.delegate?.loginFailed(error: error!)
+            completion(.failure(error!))
           }
         }
         return
       }
       let decoder: JSONDecoder = JSONDecoder()
-      if let token = try? decoder.decode(Token.self, from: data) {
-        self.handleToken(token: token)
+      if let token = try? decoder.decode(Token.self,
+                                         from: data) {
+        self.handleToken(token: token, completion: completion)
       } else {
         do {
-          let error = try decoder.decode(APIError.self, from: data)
+          let error = try decoder.decode(APIError.self,
+                                         from: data)
           DispatchQueue.main.async {
-            self.delegate?.loginFailed(error: error)
+            completion(.failure(error))
           }
         } catch {
           DispatchQueue.main.async {
-            self.delegate?.loginFailed(error: error)
+            completion(.failure(error))
           }
         }
       }
     }
-    
+
     task.resume()
   }
 
-  func handleToken(token: Token) {
+  func handleToken(token: Token,
+         completion: @escaping (Result<String, Error>) -> ()) {
     self.token = token
     Logger.logDebug("user \(token.userID)")
     DispatchQueue.main.async {
       let note = Notification(name: UserLoggedInNotification,
-                              object: self,
-                              userInfo: [UserNotificationKey.userId:
+                   object: self,
+                   userInfo: [UserNotificationKey.userId:
                                 token.userID.uuidString])
       NotificationCenter.default.post(note)
-      self.delegate?.loginSucceeded(userId: token.userID.uuidString)
+      completion(.success(token.userID.uuidString))
     }
   }
   

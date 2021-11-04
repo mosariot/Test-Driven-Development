@@ -26,16 +26,54 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import XCTest
+@testable import UIHelpers
 
-import Foundation
+class ErrorViewControllerTests: XCTestCase {
 
-extension String {
-  var isEmail: Bool {
-    return contains("@")
+  var sut: ErrorViewController!
+
+  override func setUp() {
+    super.setUp()
+    sut = UIStoryboard(name: "UIHelpers",
+                       bundle: Bundle(for: ErrorViewController.self))
+      .instantiateViewController(withIdentifier: "error")
+      as? ErrorViewController
   }
-  
-  var isValidPassword: Bool {
-    return count > 2 &&
-      self != lowercased() //has upper & lowercase values... sorta
+
+  override func tearDown() {
+    sut = nil
+    super.tearDown()
+  }
+
+  func testSecondaryButton_whenActionSet_hasCorrectTitle() {
+    // given
+    let action = ErrorViewController.SecondaryAction(title: "title") {}
+    sut.secondaryAction = action
+
+    // when
+    sut.loadViewIfNeeded()
+
+    // then
+    XCTAssertEqual(sut.secondaryButton.currentTitle, "title")
+  }
+
+  func testSecondaryAction_whenButtonTapped_isInvoked() {
+    // given
+    let exp = expectation(description: "secondary action")
+    var actionHappened = false
+    let action = ErrorViewController.SecondaryAction(title: "action") {
+      actionHappened = true
+      exp.fulfill()
+    }
+    sut.secondaryAction = action
+    sut.loadViewIfNeeded()
+
+    // when
+    sut.secondaryAction(())
+
+    // then
+    wait(for: [exp], timeout: 1)
+    XCTAssertTrue(actionHappened)
   }
 }

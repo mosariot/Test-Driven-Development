@@ -28,7 +28,7 @@
 
 import UIKit
 
-struct Skin {
+public struct Skin {
   
   let backgroundColor: UIColor
   let controlBackground: UIColor?
@@ -37,31 +37,31 @@ struct Skin {
   let tableCellTextColor: UIColor?
   let stepperColor: UIColor?
   
-  static let login = Skin(backgroundColor: UIColor(named: "canary")!,
+  public static let login = Skin(backgroundColor: UIColor(named: "canary")!,
                           controlBackground: UIColor(named: "pink"),
                           controlBorder: UIColor(named: "controlBorderGray"),
                           controlTextColor: UIColor(named: "yellow"),
                           tableCellTextColor: nil,
                           stepperColor: nil)
-  static let loginAlert = Skin(backgroundColor: UIColor(named: "pink")!,
+  public static let loginAlert = Skin(backgroundColor: UIColor(named: "pink")!,
                                controlBackground: nil,
                                controlBorder: nil,
                                controlTextColor: UIColor(named: "yellow"),
                                tableCellTextColor: nil,
                                stepperColor: nil)
-  static let announcements = Skin(backgroundColor: UIColor(named: "purple")!,
+  public static let announcements = Skin(backgroundColor: UIColor(named: "purple")!,
                                   controlBackground: nil,
                                   controlBorder: nil,
                                   controlTextColor: .darkText,
                                   tableCellTextColor: .bizLightGray,
                                   stepperColor: nil)
-  static let purchaseOrder = Skin(backgroundColor: .bizCanary,
+  public static let purchaseOrder = Skin(backgroundColor: .bizCanary,
                                   controlBackground: nil,
                                   controlBorder: nil,
                                   controlTextColor: .darkText,
                                   tableCellTextColor: .darkGray,
                                   stepperColor: .bizPurple)
-  static let orgChart = Skin(backgroundColor: .bizYellow,
+  public static let orgChart = Skin(backgroundColor: .bizYellow,
                              controlBackground: nil,
                              controlBorder: nil,
                              controlTextColor: .darkText,

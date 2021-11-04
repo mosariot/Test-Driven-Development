@@ -72,7 +72,7 @@ class APITests: XCTestCase {
     }
 
     // when
-    sut.login(username: "test", password: "test")
+    sut.login(username: "test", password: "test") { _ in }
 
     // then
     wait(for: [exp], timeout: 1)

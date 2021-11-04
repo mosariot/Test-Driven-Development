@@ -26,13 +26,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+#import <Foundation/Foundation.h>
 
-extension UIColor {
-  class var bizCanary: UIColor { return UIColor(named: "canary")! }
-  class var bizPink: UIColor { return UIColor(named: "pink")! }
-  class var bizYellow : UIColor { return UIColor(named: "yellow")! }
-  class var bizPurple : UIColor { return UIColor(named: "purple")! }
-  class var bizLightGray : UIColor { return UIColor(named: "lightGray")! }
-  class var bizDarkGray : UIColor { return UIColor(named: "darkGray")! }
-}
+//! Project version number for Login.
+FOUNDATION_EXPORT double LoginVersionNumber;
+
+//! Project version string for Login.
+FOUNDATION_EXPORT const unsigned char LoginVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <Login/PublicHeader.h>
+
+

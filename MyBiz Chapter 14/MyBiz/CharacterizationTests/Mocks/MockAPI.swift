@@ -104,8 +104,10 @@ class MockAPI: API {
     }
   }
 
-  override func login(username: String, password: String) {
+  override func login(username: String,
+             password: String,
+             completion: @escaping (Result<String, Error>) -> ()) {
     let token = Token(token: username, userID: UUID())
-    handleToken(token: token)
+    handleToken(token: token, completion: completion)
   }
 }

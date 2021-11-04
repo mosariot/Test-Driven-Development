@@ -26,19 +26,10 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-extension UIViewController {
-  func showAlert(title: String,
-                 subtitle: String?,
-                 action: ErrorViewController.SecondaryAction? = nil,
-                 skin: Skin? = nil) {
-    let alertController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "error") as! ErrorViewController
-    alertController.set(title: title, subtitle: subtitle)
-    alertController.modalPresentationStyle = .overCurrentContext
-    alertController.modalTransitionStyle = .crossDissolve
-    alertController.secondaryAction = action
-    alertController.skin = skin
-    UIApplication.shared.delegate?.window??.rootViewController?.present(alertController, animated: true)
-  }
+public protocol LoginAPI {
+  func login(username: String,
+         password: String,
+         completion: @escaping (Result<String, Error>) -> ())
 }

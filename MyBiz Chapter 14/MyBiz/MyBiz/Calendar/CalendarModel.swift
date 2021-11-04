@@ -95,8 +95,6 @@ extension CalendarModel: APIDelegate {
   
   func announcementsFailed(error: Error) {}
   func announcementsLoaded(announcements: [Announcement]) {}
-  func loginFailed(error: Error) {}
-  func loginSucceeded(userId: String) {}
   func productsLoaded(products: [Product]) {}
   func productsFailed(error: Error) {}
   func purchasesLoaded(purchases: [PurchaseOrder]) {}

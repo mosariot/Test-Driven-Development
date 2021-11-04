@@ -28,6 +28,7 @@
 
 
 import UIKit
+import UIHelpers
 
 class OrgTableViewController: UITableViewController {
   
@@ -111,8 +112,6 @@ class OrgTableViewController: UITableViewController {
 extension OrgTableViewController: APIDelegate {
   func eventsLoaded(events: [Event]) {}
   func eventsFailed(error: Error) {}
-  func loginFailed(error: Error) {}
-  func loginSucceeded(userId: String) {}
   func announcementsFailed(error: Error) {}
   func announcementsLoaded(announcements: [Announcement]) {}
   func productsLoaded(products: [Product]) {}

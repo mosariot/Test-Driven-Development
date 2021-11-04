@@ -28,6 +28,8 @@
 
 import XCTest
 @testable import MyBiz
+@testable import Login
+@testable import UIHelpers
 
 class LoginViewControllerTests: XCTestCase {
 
@@ -37,7 +39,7 @@ class LoginViewControllerTests: XCTestCase {
   // 1
   override func setUp() {
     super.setUp()
-    sut = UIStoryboard(name: "Main", bundle: nil)
+    sut = UIStoryboard(name: "Login", bundle: Bundle(for: LoginViewController.self))
       .instantiateViewController(withIdentifier: "login")
       as? LoginViewController
     UIApplication.appDelegate.userId = nil

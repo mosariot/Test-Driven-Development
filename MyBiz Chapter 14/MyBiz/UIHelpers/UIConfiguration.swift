@@ -26,58 +26,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import XCTest
-@testable import MyBiz
-@testable import UIHelpers
+import Foundation
 
-class ErrorViewControllerTests: XCTestCase {
-
-  var sut: ErrorViewController!
-
-  override func setUp() {
-    super.setUp()
-    sut = UIStoryboard(name: "UIHelpers",
-                       bundle: Bundle(for: ErrorViewController.self))
-      .instantiateViewController(withIdentifier: "error")
-      as? ErrorViewController
+public struct UIConfiguration: Codable {
+  struct Button: Codable {
+    let cornerRadius: Double
+    let borderWidth: Double
   }
 
-  override func tearDown() {
-    sut = nil
-    super.tearDown()
-  }
-
-  func whenDefault() {
-    sut.loadViewIfNeeded()
-  }
-
-  func whenSetToLogin() {
-    sut.secondaryAction = .init(title: "Try Again", action: {})
-    sut.loadViewIfNeeded()
-  }
-
-  func testViewController_whenSetToLogin_primaryButtonIsOK() {
-    // when
-    whenSetToLogin()
-
-    // then
-    XCTAssertEqual(sut.okButton.currentTitle, "OK")
-  }
-
-  func testViewController_whenSetToLogin_showsTryAgainButton() {
-    // when
-    whenSetToLogin()
-
-    // then
-    XCTAssertFalse(sut.secondaryButton.isHidden)
-    XCTAssertEqual(sut.secondaryButton.currentTitle, "Try Again")
-  }
-
-  func testViewController_whenDefault_secondaryButtonIsHidden() {
-    // when
-    whenDefault()
-
-    // then
-    XCTAssertNil(sut.secondaryButton.superview)
-  }
+  let button: Button
 }

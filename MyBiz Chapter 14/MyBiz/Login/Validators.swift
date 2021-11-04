@@ -26,63 +26,15 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import XCTest
-@testable import MyBiz
+import Foundation
 
-class ValidatorsTests: XCTestCase {
-
-  func testString_whenHasAnAt_isAnEmail() {
-    // given
-    let testString = "something@somethingelse"
-
-    // when
-    let isEmail = testString.isEmail
-
-    // then
-    XCTAssertTrue(isEmail)
+extension String {
+  var isEmail: Bool {
+    return contains("@")
   }
-
-  func testString_withNoAt_isNotAnEmail() {
-    // given
-    let testString = "just_something"
-
-    // when
-    let isEmail = testString.isEmail
-
-    // then
-    XCTAssertFalse(isEmail)
-  }
-
-  func testString_overTwoMixedCaps_isAPassword() {
-    // given
-    let testString = "a1A"
-
-    // when
-    let isPassword = testString.isValidPassword
-
-    // then
-    XCTAssertTrue(isPassword)
-  }
-
-  func testString_overTwoWithNoMixed_isNotAPassword() {
-    // given
-    let testString = "123"
-
-    // when
-    let isPassword = testString.isValidPassword
-
-    // then
-    XCTAssertFalse(isPassword)
-  }
-
-  func testString_onlyTwoCharacters_isNotAPassword() {
-    // given
-    let testString = "aA"
-
-    // when
-    let isPassword = testString.isValidPassword
-
-    // then
-    XCTAssertFalse(isPassword)
+  
+  var isValidPassword: Bool {
+    return count > 2 &&
+      self != lowercased() //has upper & lowercase values... sorta
   }
 }

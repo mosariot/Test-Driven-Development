@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import UIKit
+import UIHelpers
 
 class AnnouncementsTableViewController: UITableViewController {
   
@@ -75,8 +76,6 @@ extension AnnouncementsTableViewController: APIDelegate {
   func eventsFailed(error: Error) {}
   func orgLoaded(org: [Employee]) {}
   func orgFailed(error: Error) {}
-  func loginFailed(error: Error) {}
-  func loginSucceeded(userId: String) {}
   func userLoaded(user: UserInfo) {}
   func userFailed(error: Error) {}
   

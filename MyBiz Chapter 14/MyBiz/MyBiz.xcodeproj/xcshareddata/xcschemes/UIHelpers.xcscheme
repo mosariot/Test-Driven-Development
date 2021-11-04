@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AF4B1CA223702A100A8C9B6"
-               BuildableName = "MyBiz.app"
-               BlueprintName = "MyBiz"
+               BlueprintIdentifier = "0AFCD04A22EE043100B02279"
+               BuildableName = "UIHelpers.framework"
+               BlueprintName = "UIHelpers"
                ReferencedContainer = "container:MyBiz.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,46 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0AF4B1CA223702A100A8C9B6"
-            BuildableName = "MyBiz.app"
-            BlueprintName = "MyBiz"
-            ReferencedContainer = "container:MyBiz.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A749ABA229B6E3B0059B978"
-               BuildableName = "CharacterizationTests.xctest"
-               BlueprintName = "CharacterizationTests"
-               ReferencedContainer = "container:MyBiz.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A749ACE229B7F970059B978"
-               BuildableName = "MyBizTests.xctest"
-               BlueprintName = "MyBizTests"
-               ReferencedContainer = "container:MyBiz.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AFCD02E22EDFFB400B02279"
-               BuildableName = "LoginTests.xctest"
-               BlueprintName = "LoginTests"
-               ReferencedContainer = "container:MyBiz.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -89,16 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0AF4B1CA223702A100A8C9B6"
-            BuildableName = "MyBiz.app"
-            BlueprintName = "MyBiz"
-            ReferencedContainer = "container:MyBiz.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -106,16 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0AF4B1CA223702A100A8C9B6"
-            BuildableName = "MyBiz.app"
-            BlueprintName = "MyBiz"
+            BlueprintIdentifier = "0AFCD04A22EE043100B02279"
+            BuildableName = "UIHelpers.framework"
+            BlueprintName = "UIHelpers"
             ReferencedContainer = "container:MyBiz.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

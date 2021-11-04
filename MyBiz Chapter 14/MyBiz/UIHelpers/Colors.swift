@@ -26,58 +26,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import XCTest
-@testable import MyBiz
-@testable import UIHelpers
+import UIKit
 
-class ErrorViewControllerTests: XCTestCase {
-
-  var sut: ErrorViewController!
-
-  override func setUp() {
-    super.setUp()
-    sut = UIStoryboard(name: "UIHelpers",
-                       bundle: Bundle(for: ErrorViewController.self))
-      .instantiateViewController(withIdentifier: "error")
-      as? ErrorViewController
-  }
-
-  override func tearDown() {
-    sut = nil
-    super.tearDown()
-  }
-
-  func whenDefault() {
-    sut.loadViewIfNeeded()
-  }
-
-  func whenSetToLogin() {
-    sut.secondaryAction = .init(title: "Try Again", action: {})
-    sut.loadViewIfNeeded()
-  }
-
-  func testViewController_whenSetToLogin_primaryButtonIsOK() {
-    // when
-    whenSetToLogin()
-
-    // then
-    XCTAssertEqual(sut.okButton.currentTitle, "OK")
-  }
-
-  func testViewController_whenSetToLogin_showsTryAgainButton() {
-    // when
-    whenSetToLogin()
-
-    // then
-    XCTAssertFalse(sut.secondaryButton.isHidden)
-    XCTAssertEqual(sut.secondaryButton.currentTitle, "Try Again")
-  }
-
-  func testViewController_whenDefault_secondaryButtonIsHidden() {
-    // when
-    whenDefault()
-
-    // then
-    XCTAssertNil(sut.secondaryButton.superview)
-  }
+extension UIColor {
+  public class var bizCanary: UIColor { return UIColor(named: "canary")! }
+  public class var bizPink: UIColor { return UIColor(named: "pink")! }
+  public class var bizYellow : UIColor { return UIColor(named: "yellow")! }
+  public class var bizPurple : UIColor { return UIColor(named: "purple")! }
+  public class var bizLightGray : UIColor { return UIColor(named: "lightGray")! }
+  public class var bizDarkGray : UIColor { return UIColor(named: "darkGray")! }
 }
