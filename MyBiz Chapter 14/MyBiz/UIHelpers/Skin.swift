@@ -37,19 +37,19 @@ public struct Skin {
   let tableCellTextColor: UIColor?
   let stepperColor: UIColor?
   
-  public static let login = Skin(backgroundColor: UIColor(named: "canary")!,
-                          controlBackground: UIColor(named: "pink"),
-                          controlBorder: UIColor(named: "controlBorderGray"),
-                          controlTextColor: UIColor(named: "yellow"),
+  public static let login = Skin(backgroundColor: .bizCanary,
+                          controlBackground: .bizPink,
+                          controlBorder: .bizControlBorder,
+                          controlTextColor: .bizYellow,
                           tableCellTextColor: nil,
                           stepperColor: nil)
-  public static let loginAlert = Skin(backgroundColor: UIColor(named: "pink")!,
+  public static let loginAlert = Skin(backgroundColor: .bizPink,
                                controlBackground: nil,
                                controlBorder: nil,
-                               controlTextColor: UIColor(named: "yellow"),
+                               controlTextColor: .bizYellow,
                                tableCellTextColor: nil,
                                stepperColor: nil)
-  public static let announcements = Skin(backgroundColor: UIColor(named: "purple")!,
+  public static let announcements = Skin(backgroundColor: .bizPurple,
                                   controlBackground: nil,
                                   controlBorder: nil,
                                   controlTextColor: .darkText,

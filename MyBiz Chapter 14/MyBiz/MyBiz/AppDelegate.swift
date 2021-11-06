@@ -75,9 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func showLogin() {
-    let storyboard = UIStoryboard(name: "Login", bundle: Bundle(for: LoginViewController.self))
-    let loginController = storyboard.instantiateViewController(withIdentifier: "login") as? LoginViewController
-    loginController?.api = api
+    let loginController = LoginViewController.make()
+    loginController.api = api
     window?.rootViewController = loginController
   }
 }

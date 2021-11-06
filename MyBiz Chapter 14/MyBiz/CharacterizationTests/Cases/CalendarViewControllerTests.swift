@@ -76,7 +76,7 @@ class CalendarViewControllerTests: XCTestCase {
     sut.loadEvents()
 
     // then
-    wait(for: [exp], timeout: 1)
+    wait(for: [exp], timeout: 2)
     XCTAssertEqual(sut.events, expectedEvents)
   }
 }

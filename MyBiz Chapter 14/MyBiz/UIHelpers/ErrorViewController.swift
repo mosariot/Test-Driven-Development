@@ -100,7 +100,7 @@ public class ErrorViewController: UIViewController {
       dismiss(animated: true)
       action.action()
     } else {
-//      Logger.logFatal("no action defined.")
+      Logger.logFatal("no action defined.")
     }
   }
 }

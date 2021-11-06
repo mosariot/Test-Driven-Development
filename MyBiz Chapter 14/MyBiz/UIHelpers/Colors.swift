@@ -29,10 +29,13 @@
 import UIKit
 
 extension UIColor {
-  public class var bizCanary: UIColor { return UIColor(named: "canary")! }
-  public class var bizPink: UIColor { return UIColor(named: "pink")! }
-  public class var bizYellow : UIColor { return UIColor(named: "yellow")! }
-  public class var bizPurple : UIColor { return UIColor(named: "purple")! }
-  public class var bizLightGray : UIColor { return UIColor(named: "lightGray")! }
-  public class var bizDarkGray : UIColor { return UIColor(named: "darkGray")! }
+  static let bundle = Bundle(for: Styler.self)
+
+  public class var bizCanary: UIColor { return UIColor(named: "canary", in: bundle, compatibleWith: nil)! }
+  public class var bizPink: UIColor { return UIColor(named: "pink", in: bundle, compatibleWith: nil)! }
+  public class var bizYellow : UIColor { return UIColor(named: "yellow", in: bundle, compatibleWith: nil)! }
+  public class var bizPurple : UIColor { return UIColor(named: "purple", in: bundle, compatibleWith: nil)! }
+  public class var bizLightGray : UIColor { return UIColor(named: "lightGray", in: bundle, compatibleWith: nil)! }
+  public class var bizDarkGray : UIColor { return UIColor(named: "darkGray", in: bundle, compatibleWith: nil)! }
+  public class var bizControlBorder : UIColor { return UIColor(named: "controlBorderGray", in: bundle, compatibleWith: nil)! }
 }

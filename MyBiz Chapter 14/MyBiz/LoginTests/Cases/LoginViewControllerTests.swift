@@ -27,26 +27,21 @@
 /// THE SOFTWARE.
 
 import XCTest
-@testable import MyBiz
 @testable import Login
-@testable import UIHelpers
+import UIHelpers
 
 class LoginViewControllerTests: XCTestCase {
 
   var sut: LoginViewController!
-  var api: SpyAPI!
+  var api: MockLoginAPI!
 
   // 1
   override func setUp() {
     super.setUp()
-    sut = UIStoryboard(name: "Login", bundle: Bundle(for: LoginViewController.self))
-      .instantiateViewController(withIdentifier: "login")
-      as? LoginViewController
-    UIApplication.appDelegate.userId = nil
-
-    api = SpyAPI(api: UIApplication.appDelegate.api)
+    sut = LoginViewController.make()
+    api = MockLoginAPI()
+    
     sut.api = api
-
     sut.loadViewIfNeeded()
   }
 
@@ -54,7 +49,6 @@ class LoginViewControllerTests: XCTestCase {
   override func tearDown() {
     sut = nil
     api = nil
-    UIApplication.appDelegate.userId = nil //do the "logout"
     super.tearDown()
   }
 
@@ -67,54 +61,7 @@ class LoginViewControllerTests: XCTestCase {
     sut.signIn(sut.signInButton!)
   }
 
-  func testSignIn_WithGoodCredentials_doesLogin() {
-    // given
-    givenGoodLogin()
-
-    // when
-    // 3
-    let exp = expectation(for: NSPredicate(block:
-    { vc, _ -> Bool in
-      return UIApplication.appDelegate.userId != nil
-    }), evaluatedWith: sut, handler: nil)
-
-    whenSignIn()
-
-    // then
-    // 4
-    wait(for: [exp], timeout: 1)
-    XCTAssertNotNil(UIApplication.appDelegate.userId,
-                    "a successful login sets valid user id")
-  }
-
-  func testSignIn_WithBadCredentials_showsError() {
-    // given
-    sut.emailField.text = "bad@credentials.ca"
-    sut.passwordField.text = "Shazam!"
-
-    // when
-    let exp = expectation(for: NSPredicate(block:
-    { vc, _ -> Bool in
-      return UIApplication.appDelegate.window?.rootViewController?
-        .presentedViewController != nil
-    }), evaluatedWith: sut, handler: nil)
-
-    whenSignIn()
-
-    // then
-    wait(for: [exp], timeout: 1)
-    let presentedController = UIApplication.appDelegate.window?
-      .rootViewController?.presentedViewController
-      as? ErrorViewController
-    XCTAssertNotNil(presentedController,
-                    "should be showing an error controller")
-    XCTAssertEqual(presentedController?.alertTitle,
-                   "Login Failed")
-    XCTAssertEqual(presentedController?.subtitle,
-                   "User has not been authenticated.")
-  }
-
-  func testSignIn_withGoodCredentials_callsLogin() {
+  func testSignIn_WithGoodCredentials_callsLogin() {
     // given
     givenGoodLogin()
 
@@ -125,10 +72,10 @@ class LoginViewControllerTests: XCTestCase {
     XCTAssertTrue(api.loginCalled)
   }
 
-  func testSignIn_withInvalidEmail_doesNotCallLogin() {
+  func testSignIn_withInvalidEmail_doesNotCallsLogin() {
     // given
-    sut.emailField.text = "pizza" //bad
-    sut.passwordField.text = "hailHydra" //good
+    sut.emailField.text = "pizza"
+    sut.passwordField.text = "hailHydra!"
 
     // when
     whenSignIn()
@@ -137,10 +84,10 @@ class LoginViewControllerTests: XCTestCase {
     XCTAssertFalse(api.loginCalled)
   }
 
-  func testSignIn_withInvalidPassowerd_doesNotCallLogin() {
+  func testSignIn_withInvalidPassword_doesNotCallsLogin() {
     // given
-    sut.emailField.text = "agend@shield.org" //good
-    sut.passwordField.text = "1" //bad
+    sut.emailField.text = "agend@shield.org"
+    sut.passwordField.text = "1"
 
     // when
     whenSignIn()

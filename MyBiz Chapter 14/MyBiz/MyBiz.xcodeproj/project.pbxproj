@@ -25,7 +25,6 @@
 		0A749ADE229B82B10059B978 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749ADD229B82B10059B978 /* CalendarModel.swift */; };
 		0A749ADF229B84EE0059B978 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749AC9229B7D8F0059B978 /* MockAPI.swift */; };
 		0A749AE1229B8E560059B978 /* CalendarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749AE0229B8E560059B978 /* CalendarViewControllerTests.swift */; };
-		0A76FD2E22ECDC62009695CD /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */; };
 		0A8D0FCD22EE167300E2ABF2 /* UIHelpers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D0FCC22EE167300E2ABF2 /* UIHelpers.storyboard */; };
 		0A8D0FD022EE1BB100E2ABF2 /* UIHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD04B22EE043100B02279 /* UIHelpers.framework */; };
 		0A8D0FD122EE1BB100E2ABF2 /* UIHelpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD04B22EE043100B02279 /* UIHelpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -86,6 +85,11 @@
 		0AFCD07022EE11FF00B02279 /* ErrorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3138FF22ED33E90043BBE3 /* ErrorViewControllerTests.swift */; };
 		4CDBC640227F74220043C1E0 /* DayDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */; };
 		9FA216F62734615E008AC6D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA216F52734615E008AC6D7 /* Login.storyboard */; };
+		9FA216FB2736B6E1008AC6D7 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */; };
+		9FA217002736B982008AC6D7 /* MockLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */; };
+		9FA217012736BE80008AC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */; };
+		9FA217032736BEE8008AC6D7 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */; };
+		9FA217052736C1DD008AC6D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA217042736C1DD008AC6D7 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +258,9 @@
 		0AFCD06D22EE050D00B02279 /* UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfiguration.swift; sourceTree = "<group>"; };
 		4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailTableViewController.swift; sourceTree = "<group>"; };
 		9FA216F52734615E008AC6D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Login/Login.storyboard; sourceTree = SOURCE_ROOT; };
+		9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginAPI.swift; sourceTree = "<group>"; };
+		9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		9FA217042736C1DD008AC6D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,9 +334,8 @@
 		0A749AC5229B6FE20059B978 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				0A3138FD22ED323B0043BBE3 /* ErrorViewControllerTests.swift */,
 				0A749AC6229B6FF30059B978 /* CalendarViewControllerTests.swift */,
-				0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */,
+				0A3138FD22ED323B0043BBE3 /* ErrorViewControllerTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3138FB22ECEF290043BBE3 /* APITests.swift */,
+				9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */,
 				0A749ADA229B7FDB0059B978 /* CalendarModelTests.swift */,
 				0A749AE0229B8E560059B978 /* CalendarViewControllerTests.swift */,
 			);
@@ -375,12 +382,12 @@
 		0A76FD1022ECD622009695CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9FA216F52734615E008AC6D7 /* Login.storyboard */,
+				0A76FD1222ECD622009695CD /* Info.plist */,
 				0A76FD1122ECD622009695CD /* Login.h */,
+				9FA216F52734615E008AC6D7 /* Login.storyboard */,
+				0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */,
 				0AF4B1E42237060100A8C9B6 /* LoginViewController.swift */,
 				0A06BE9122B0972900EA03E2 /* Validators.swift */,
-				0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */,
-				0A76FD1222ECD622009695CD /* Info.plist */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -388,7 +395,8 @@
 		0A76FD1D22ECD622009695CD /* LoginTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A31390522ED41B60043BBE3 /* ValidatorsTests.swift */,
+				9FA216FD2736B967008AC6D7 /* Cases */,
+				9FA216FE2736B96D008AC6D7 /* Mocks */,
 				0A76FD2022ECD622009695CD /* Info.plist */,
 			);
 			path = LoginTests;
@@ -459,39 +467,39 @@
 		0AF4B1CD223702A100A8C9B6 /* MyBiz */ = {
 			isa = PBXGroup;
 			children = (
-				0AF4B1CE223702A100A8C9B6 /* AppDelegate.swift */,
-				0A06BE9322B09BA100EA03E2 /* Configuration.swift */,
-				0A99950A22B1B18D00AE728F /* TitleView.swift */,
-				0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */,
-				0AAED2BF22AE804A00F8F2F1 /* Logger.swift */,
-				0A749ADC229B80440059B978 /* Calendar */,
-				4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */,
-				0A307C1D227BC5D700B15EEA /* OrgTableViewController.swift */,
-				0A307C1F227BC5EB00B15EEA /* OrgTableViewCell.swift */,
-				0AC8D0D522A54D1A00A65044 /* PurchasesTableViewController.swift */,
-				0AC8DBAF22ADECC400A65044 /* PurchasesTableViewCell.swift */,
-				0A2D945022B990B100565339 /* CreatePurachaseOrderTableViewController.swift */,
-				0A2D944E22B9909900565339 /* AddToOrderTableViewController.swift */,
 				0A61784922BA581200DB75DE /* AddProductTableViewCell.swift */,
-				0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */,
-				0AC8DBAD22ADE86000A65044 /* SettingsTableViewController.swift */,
-				0AF4B1E22237035400A8C9B6 /* API.swift */,
-				0AC8DBA522ADB23E00A65044 /* Token.swift */,
-				0A18F74722AF4C680085C183 /* UserInfo.swift */,
-				0AC8DBA722ADB47400A65044 /* APIError.swift */,
+				0A2D944E22B9909900565339 /* AddToOrderTableViewController.swift */,
 				0AB45A8C226FEE8000654240 /* Announcement.swift */,
+				0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */,
+				0AF4B1E22237035400A8C9B6 /* API.swift */,
+				0AC8DBA722ADB47400A65044 /* APIError.swift */,
+				0AF4B1CE223702A100A8C9B6 /* AppDelegate.swift */,
+				0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */,
+				0A749ADC229B80440059B978 /* Calendar */,
+				0A06BE9522B09C5100EA03E2 /* configuration.json */,
+				0A06BE9322B09BA100EA03E2 /* Configuration.swift */,
+				0A2D945022B990B100565339 /* CreatePurachaseOrderTableViewController.swift */,
+				0A307C21227CD63200B15EEA /* DateExtensions.swift */,
+				0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */,
+				4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */,
 				0AB45A8E226FF4E200654240 /* Employee.swift */,
 				0AB45A92226FFA2000654240 /* Event.swift */,
+				0AF4B1DC223702A300A8C9B6 /* Info.plist */,
+				0AB45A962270865D00654240 /* JTAppleCalendar */,
+				0AF4B1D9223702A300A8C9B6 /* LaunchScreen.storyboard */,
+				0A749AB6229B01630059B978 /* licenses.md */,
+				0AAED2BF22AE804A00F8F2F1 /* Logger.swift */,
+				0AF4B1D4223702A100A8C9B6 /* Main.storyboard */,
+				0A307C1F227BC5EB00B15EEA /* OrgTableViewCell.swift */,
+				0A307C1D227BC5D700B15EEA /* OrgTableViewController.swift */,
 				0AB45A90226FF59E00654240 /* Product.swift */,
 				0AC8D0D322A54B9E00A65044 /* PurchaseOrder.swift */,
-				0A307C21227CD63200B15EEA /* DateExtensions.swift */,
-				0AF4B1D4223702A100A8C9B6 /* Main.storyboard */,
-				0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */,
-				0A06BE9522B09C5100EA03E2 /* configuration.json */,
-				0AF4B1D9223702A300A8C9B6 /* LaunchScreen.storyboard */,
-				0AF4B1DC223702A300A8C9B6 /* Info.plist */,
-				0A749AB6229B01630059B978 /* licenses.md */,
-				0AB45A962270865D00654240 /* JTAppleCalendar */,
+				0AC8DBAF22ADECC400A65044 /* PurchasesTableViewCell.swift */,
+				0AC8D0D522A54D1A00A65044 /* PurchasesTableViewController.swift */,
+				0AC8DBAD22ADE86000A65044 /* SettingsTableViewController.swift */,
+				0A99950A22B1B18D00AE728F /* TitleView.swift */,
+				0AC8DBA522ADB23E00A65044 /* Token.swift */,
+				0A18F74722AF4C680085C183 /* UserInfo.swift */,
 			);
 			path = MyBiz;
 			sourceTree = "<group>";
@@ -499,15 +507,16 @@
 		0AFCD04C22EE043100B02279 /* UIHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				0AFCD04D22EE043100B02279 /* UIHelpers.h */,
-				0AB45A88226FE3F000654240 /* UIViewController+Alert.swift */,
+				0A99950C22B1B1E600AE728F /* Colors.swift */,
 				0AAED2BD22AE7BDB00F8F2F1 /* ErrorViewController.swift */,
+				9FA217042736C1DD008AC6D7 /* Logger.swift */,
+				0AFCD04E22EE043100B02279 /* Info.plist */,
 				0AC8DBB922ADF9E200A65044 /* Skin.swift */,
 				0A61784B22BA7E8A00DB75DE /* Styler.swift */,
-				0A99950C22B1B1E600AE728F /* Colors.swift */,
 				0AFCD06D22EE050D00B02279 /* UIConfiguration.swift */,
+				0AFCD04D22EE043100B02279 /* UIHelpers.h */,
 				0A8D0FCC22EE167300E2ABF2 /* UIHelpers.storyboard */,
-				0AFCD04E22EE043100B02279 /* Info.plist */,
+				0AB45A88226FE3F000654240 /* UIViewController+Alert.swift */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -527,6 +536,23 @@
 				0A3138FF22ED33E90043BBE3 /* ErrorViewControllerTests.swift */,
 			);
 			path = Cases;
+			sourceTree = "<group>";
+		};
+		9FA216FD2736B967008AC6D7 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */,
+				0A31390522ED41B60043BBE3 /* ValidatorsTests.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		9FA216FE2736B96D008AC6D7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -786,6 +812,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA217012736BE80008AC6D7 /* Assets.xcassets in Resources */,
 				0A8D0FCD22EE167300E2ABF2 /* UIHelpers.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,7 +831,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A76FD2E22ECDC62009695CD /* LoginViewControllerTests.swift in Sources */,
 				0A3138FE22ED323B0043BBE3 /* ErrorViewControllerTests.swift in Sources */,
 				0A749ACA229B7D8F0059B978 /* MockAPI.swift in Sources */,
 				0A749AC7229B6FF30059B978 /* CalendarViewControllerTests.swift in Sources */,
@@ -817,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A749AE1229B8E560059B978 /* CalendarViewControllerTests.swift in Sources */,
+				9FA217032736BEE8008AC6D7 /* AppDelegateTests.swift in Sources */,
 				0A749ADF229B84EE0059B978 /* MockAPI.swift in Sources */,
 				0A3138FC22ECEF290043BBE3 /* APITests.swift in Sources */,
 				0A749ADB229B7FDB0059B978 /* CalendarModelTests.swift in Sources */,
@@ -888,7 +915,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA216FB2736B6E1008AC6D7 /* LoginViewControllerTests.swift in Sources */,
 				0A8D0FD722EE215500E2ABF2 /* ValidatorsTests.swift in Sources */,
+				9FA217002736B982008AC6D7 /* MockLoginAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +929,7 @@
 				0AFCD06C22EE046200B02279 /* Styler.swift in Sources */,
 				0AFCD06B22EE046200B02279 /* ErrorViewController.swift in Sources */,
 				0AFCD06922EE046200B02279 /* Skin.swift in Sources */,
+				9FA217052736C1DD008AC6D7 /* Logger.swift in Sources */,
 				0AFCD06E22EE050D00B02279 /* UIConfiguration.swift in Sources */,
 				0AFCD06822EE046200B02279 /* Colors.swift in Sources */,
 			);
@@ -1108,7 +1138,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1164,7 +1194,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

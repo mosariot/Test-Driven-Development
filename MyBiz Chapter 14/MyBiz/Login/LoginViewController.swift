@@ -31,6 +31,14 @@ import UIHelpers
 
 public class LoginViewController: UIViewController {
   
+  public class func make() -> LoginViewController {
+    let storyboard = UIStoryboard(name: "Login", bundle: Bundle(for: self))
+    if let loginViewController = storyboard.instantiateViewController(withIdentifier: "login") as? LoginViewController {
+      return loginViewController
+    } else {
+      fatalError("could not load login view controller from storyboard")}
+  }
+  
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var signInButton: UIButton!
