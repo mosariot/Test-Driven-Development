@@ -53,4 +53,13 @@ struct Report: Codable {
   var device: String
   var os: String
   var appVersion: String
+  
+  static func make(event: AnalyticsEvent, type: AnalyticsType) -> Report {
+    Report(name: event.rawValue,
+           recordedDate: Date(),
+           type: type.rawValue,
+           duration: nil, device: UIDevice.current.model,
+           os: UIDevice.current.systemVersion,
+           appVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
+  }
 }

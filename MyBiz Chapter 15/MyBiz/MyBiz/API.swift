@@ -54,6 +54,10 @@ protocol APIDelegate: AnyObject {
   func userFailed(error: Error)
 }
 
+protocol RequestSender {
+  func send<T: Decodable>(request: URLRequest, success: ((T) -> ())?, failure:((Error) -> ())?)
+}
+
 class API: LoginAPI {
   
   let server: String
@@ -61,6 +65,7 @@ class API: LoginAPI {
   
   weak var delegate: APIDelegate?
   var token: Token?
+  lazy var sender: RequestSender = self
   
   init(server: String) {
     self.server = server
@@ -244,6 +249,16 @@ class API: LoginAPI {
     let task = loadTask(request: req,
                         success: self.delegate?.userLoaded(user:),
                         failure: self.delegate?.userFailed(error:))
+    task.resume()
+  }
+}
+
+// MARK: - Request Sender
+
+extension API: RequestSender {
+  
+  func send<T>(request: URLRequest, success: ((T) -> ())?, failure: ((Error) -> ())?) where T : Decodable {
+    let task = loadTask(request: request, success: success, failure: failure)
     task.resume()
   }
 }

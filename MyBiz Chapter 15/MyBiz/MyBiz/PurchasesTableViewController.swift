@@ -35,6 +35,7 @@ class PurchasesTableViewController: UITableViewController {
   
   var purchases: [PurchaseOrder] = []
   var products: [Product] = []
+  var analytics: AnalyticsAPI?
 
   let skin: Skin = .purchaseOrder
 
@@ -49,6 +50,9 @@ class PurchasesTableViewController: UITableViewController {
     api.delegate = self
     api.getProducts()
     api.getPurchases()
+    
+    let report = Report.make(event: .purchasesShown, type: .screenView)
+    analytics?.sendReport(report: report)
   }
   
   // MARK: - Table view data source
@@ -123,3 +127,5 @@ extension PurchasesTableViewController: APIDelegate {
     showAlert(title: "Could not load purchase", subtitle: error.localizedDescription)
   }
 }
+
+extension PurchasesTableViewController: ReportSending { }

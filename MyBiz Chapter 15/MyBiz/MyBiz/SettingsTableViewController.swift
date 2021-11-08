@@ -35,6 +35,7 @@ class SettingsTableViewController: UITableViewController {
 
   var api: API { return (UIApplication.shared.delegate as! AppDelegate).api }
   var logoutTitle: String?
+  var analytics: AnalyticsAPI?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,6 +49,8 @@ class SettingsTableViewController: UITableViewController {
     }
 
     dayOfWeekSwitch.selectedSegmentIndex = AppDelegate.configuration.firstDayOfWeek == .sunday ? 0 : 1
+    
+    analytics?.sendReport(report: Report.make(event: .settingShown, type: .screenView))
   }
 
   @IBAction func selectDayOfWeek(_ sender: UISegmentedControl) {
@@ -105,3 +108,5 @@ extension SettingsTableViewController: APIDelegate {
     Logger.logError(error)
   }
 }
+
+extension SettingsTableViewController: ReportSending { }

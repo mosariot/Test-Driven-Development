@@ -72,7 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.userId = userId
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let tabController = storyboard.instantiateViewController(withIdentifier: "tabController")
+    let tabController = storyboard.instantiateViewController(withIdentifier: "tabController") as! UITabBarController
+    tabController.viewControllers?
+      .compactMap { $0 as? ReportSending }
+      .forEach { $0.analytics = api }
     window?.rootViewController = tabController
   }
   

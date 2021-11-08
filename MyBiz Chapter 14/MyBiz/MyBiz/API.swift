@@ -28,6 +28,7 @@
 
 import Foundation
 import Login
+import UIHelpers
 
 let UserLoggedOutNotification =
   Notification.Name("user logged out")

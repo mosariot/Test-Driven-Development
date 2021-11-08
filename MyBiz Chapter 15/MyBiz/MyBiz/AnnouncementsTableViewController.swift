@@ -33,6 +33,7 @@ class AnnouncementsTableViewController: UITableViewController {
   
   var api: API { return (UIApplication.shared.delegate as! AppDelegate).api }
   var announcements: [Announcement] = []
+  var analytics: AnalyticsAPI?
   
   let skin: Skin = .announcements
   
@@ -45,6 +46,9 @@ class AnnouncementsTableViewController: UITableViewController {
     super.viewWillAppear(animated)
     api.delegate = self
     api.getAnnouncements()
+    
+    let screenReport = Report.make(event: .announcementsShown, type: .screenView)
+    analytics?.sendReport(report: screenReport)
   }
   
   // MARK: - Table view data source
@@ -89,3 +93,5 @@ extension AnnouncementsTableViewController: APIDelegate {
     tableView.reloadData()
   }
 }
+
+extension AnnouncementsTableViewController: ReportSending { }

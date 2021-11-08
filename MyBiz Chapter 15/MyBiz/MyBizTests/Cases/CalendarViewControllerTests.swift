@@ -33,6 +33,7 @@ class CalendarViewControllerTests: XCTestCase {
 
   var sut: CalendarViewController!
   var mockAPI: MockAPI!
+  var mockAnalytics: MockAnalyticsAPI!
 
   override func setUp() {
     super.setUp()
@@ -41,11 +42,15 @@ class CalendarViewControllerTests: XCTestCase {
 
     mockAPI = MockAPI()
     sut.api = mockAPI
+    
+    mockAnalytics = MockAnalyticsAPI()
+    sut.analytics = mockAnalytics
     sut.loadViewIfNeeded()
   }
 
   override func tearDown() {
     mockAPI = nil
+    mockAnalytics = nil
     sut = nil
     super.tearDown()
   }
@@ -85,4 +90,13 @@ class CalendarViewControllerTests: XCTestCase {
     XCTAssertEqual(sut.events, expectedEvents)
   }
   
+  // MARK: - Analytic Tests
+  
+  func testController_whenShown_sendsAnalytics() {
+    // when
+    sut.viewWillAppear(false)
+    
+    // then
+    XCTAssertTrue(mockAnalytics.reportsSent)
+  }
 }

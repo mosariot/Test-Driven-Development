@@ -29,18 +29,25 @@
 
 import Foundation
 import UIKit
+import UIHelpers
 
-class Logger {
-  static func logFatal(_ message: String) {
+class LoggerImplementation: LoggerAPI {
+  let debug: Bool
+  
+  init(debug: Bool) {
+    self.debug = debug
+  }
+  
+  func logFatal(_ message: String) {
     print("[FATAL] " + message)
   }
   
-  static func logDebug(_ message: String) {
+  func logDebug(_ message: String) {
     guard AppDelegate.configuration.debug else { return }
     print("[DEBUG] " + message)
   }
   
-  static func logError(_ error: Error) {
+  func logError(_ error: Error) {
     print("[ERROR] " + error.localizedDescription)
   }
 }

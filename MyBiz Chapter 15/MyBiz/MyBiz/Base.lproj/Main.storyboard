@@ -626,7 +626,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJG-qj-ciz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="1925"/>
+            <point key="canvasLocation" x="-1908" y="1388"/>
         </scene>
         <!--Purchases-->
         <scene sceneID="5rC-jE-4yP">
@@ -643,7 +643,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAq-6Q-88R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="1173"/>
+            <point key="canvasLocation" x="-1322" y="494"/>
         </scene>
         <!--Day Detail Table View Controller-->
         <scene sceneID="30B-1u-ty0">

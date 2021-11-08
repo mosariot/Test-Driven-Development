@@ -35,6 +35,7 @@ class CalendarViewController: UIViewController {
   var api: API = (UIApplication.shared.delegate as! AppDelegate).api
   var model: CalendarModel!
   var events: [Event] = []
+  var analytics: AnalyticsAPI?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -57,6 +58,7 @@ class CalendarViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     loadEvents()
+    analytics?.sendReport(report: Report.make(event: .calendarShown, type: .screenView))
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,3 +133,5 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     cell.hasEvent = hasEvent
   }
 }
+
+extension CalendarViewController: ReportSending { }
