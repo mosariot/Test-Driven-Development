@@ -36,6 +36,7 @@ extension UIColor {
   public class var bizYellow : UIColor { return UIColor(named: "yellow", in: bundle, compatibleWith: nil)! }
   public class var bizPurple : UIColor { return UIColor(named: "purple", in: bundle, compatibleWith: nil)! }
   public class var bizLightGray : UIColor { return UIColor(named: "lightGray", in: bundle, compatibleWith: nil)! }
-  public class var bizDarkGray : UIColor { return UIColor(named: "darkGray", in: bundle, compatibleWith: nil)! }
+  public class var bizDarkGray : UIColor { return UIColor(named: "darkGray", in: bundle, compatibleWith: nil
+    )! }
   public class var bizControlBorder : UIColor { return UIColor(named: "controlBorderGray", in: bundle, compatibleWith: nil)! }
 }

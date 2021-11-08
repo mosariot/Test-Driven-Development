@@ -25,14 +25,20 @@
 		0A749ADE229B82B10059B978 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749ADD229B82B10059B978 /* CalendarModel.swift */; };
 		0A749ADF229B84EE0059B978 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749AC9229B7D8F0059B978 /* MockAPI.swift */; };
 		0A749AE1229B8E560059B978 /* CalendarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A749AE0229B8E560059B978 /* CalendarViewControllerTests.swift */; };
+		0A8B274822EE6A1600C794B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8B274622EE68F400C794B5 /* Login.storyboard */; };
+		0A8B274922EE6AEA00C794B5 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99950A22B1B18D00AE728F /* TitleView.swift */; };
+		0A8B274A22EE6C1400C794B5 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */; };
+		0A8B274D22EE6C3800C794B5 /* MockLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B274C22EE6C3800C794B5 /* MockLoginAPI.swift */; };
+		0A8B274F22EE6DDD00C794B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */; };
+		0A8B275122EE800800C794B5 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B275022EE800800C794B5 /* AppDelegateTests.swift */; };
+		0A8B275322EE840F00C794B5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B275222EE840F00C794B5 /* Logger.swift */; };
 		0A8D0FCD22EE167300E2ABF2 /* UIHelpers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D0FCC22EE167300E2ABF2 /* UIHelpers.storyboard */; };
 		0A8D0FD022EE1BB100E2ABF2 /* UIHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD04B22EE043100B02279 /* UIHelpers.framework */; };
 		0A8D0FD122EE1BB100E2ABF2 /* UIHelpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD04B22EE043100B02279 /* UIHelpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A8D0FD622EE1D8100E2ABF2 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */; };
 		0A8D0FD722EE215500E2ABF2 /* ValidatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31390522ED41B60043BBE3 /* ValidatorsTests.swift */; };
-		0A99950B22B1B18D00AE728F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99950A22B1B18D00AE728F /* TitleView.swift */; };
 		0AAAAD5D22BF099D0021AAA3 /* DateSelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */; };
-		0AAED2C022AE804A00F8F2F1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAED2BF22AE804A00F8F2F1 /* Logger.swift */; };
+		0AAED2C022AE804A00F8F2F1 /* LoggerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAED2BF22AE804A00F8F2F1 /* LoggerImplementation.swift */; };
 		0AB45A8B226FEDF400654240 /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */; };
 		0AB45A8D226FEE8000654240 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB45A8C226FEE8000654240 /* Announcement.swift */; };
 		0AB45A8F226FF4E200654240 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB45A8E226FF4E200654240 /* Employee.swift */; };
@@ -67,6 +73,7 @@
 		0AF4B1D8223702A300A8C9B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */; };
 		0AF4B1DB223702A300A8C9B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4B1D9223702A300A8C9B6 /* LaunchScreen.storyboard */; };
 		0AF4B1E32237035400A8C9B6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4B1E22237035400A8C9B6 /* API.swift */; };
+		0AF89E1922F8C655002B228A /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF89E1822F8C655002B228A /* Report.swift */; };
 		0AFCD03022EDFFB400B02279 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD02722EDFFB300B02279 /* Login.framework */; };
 		0AFCD03C22EDFFB400B02279 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD02722EDFFB300B02279 /* Login.framework */; };
 		0AFCD03D22EDFFB400B02279 /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFCD02722EDFFB300B02279 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,12 +91,6 @@
 		0AFCD06E22EE050D00B02279 /* UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCD06D22EE050D00B02279 /* UIConfiguration.swift */; };
 		0AFCD07022EE11FF00B02279 /* ErrorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3138FF22ED33E90043BBE3 /* ErrorViewControllerTests.swift */; };
 		4CDBC640227F74220043C1E0 /* DayDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */; };
-		9FA216F62734615E008AC6D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA216F52734615E008AC6D7 /* Login.storyboard */; };
-		9FA216FB2736B6E1008AC6D7 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */; };
-		9FA217002736B982008AC6D7 /* MockLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */; };
-		9FA217012736BE80008AC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */; };
-		9FA217032736BEE8008AC6D7 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */; };
-		9FA217052736C1DD008AC6D7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA217042736C1DD008AC6D7 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,13 +202,17 @@
 		0A76FD1222ECD622009695CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A76FD2022ECD622009695CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		0A8B274622EE68F400C794B5 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Login/Login.storyboard; sourceTree = SOURCE_ROOT; };
+		0A8B274C22EE6C3800C794B5 /* MockLoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginAPI.swift; sourceTree = "<group>"; };
+		0A8B275022EE800800C794B5 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		0A8B275222EE840F00C794B5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		0A8D0FCC22EE167300E2ABF2 /* UIHelpers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UIHelpers.storyboard; sourceTree = "<group>"; };
 		0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		0A99950A22B1B18D00AE728F /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		0A99950C22B1B1E600AE728F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectingViewController.swift; sourceTree = "<group>"; };
 		0AAED2BD22AE7BDB00F8F2F1 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
-		0AAED2BF22AE804A00F8F2F1 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		0AAED2BF22AE804A00F8F2F1 /* LoggerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerImplementation.swift; sourceTree = "<group>"; };
 		0AB45A88226FE3F000654240 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 		0AB45A8C226FEE8000654240 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -248,6 +253,7 @@
 		0AF4B1DC223702A300A8C9B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF4B1E22237035400A8C9B6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0AF4B1E42237060100A8C9B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AF89E1822F8C655002B228A /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		0AFCD02722EDFFB300B02279 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFCD02F22EDFFB400B02279 /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFCD04B22EE043100B02279 /* UIHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,10 +263,6 @@
 		0AFCD05C22EE043100B02279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFCD06D22EE050D00B02279 /* UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfiguration.swift; sourceTree = "<group>"; };
 		4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailTableViewController.swift; sourceTree = "<group>"; };
-		9FA216F52734615E008AC6D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Login/Login.storyboard; sourceTree = SOURCE_ROOT; };
-		9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginAPI.swift; sourceTree = "<group>"; };
-		9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
-		9FA217042736C1DD008AC6D7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,8 +336,8 @@
 		0A749AC5229B6FE20059B978 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				0A749AC6229B6FF30059B978 /* CalendarViewControllerTests.swift */,
 				0A3138FD22ED323B0043BBE3 /* ErrorViewControllerTests.swift */,
+				0A749AC6229B6FF30059B978 /* CalendarViewControllerTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -362,9 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				0A3138FB22ECEF290043BBE3 /* APITests.swift */,
-				9FA217022736BEE8008AC6D7 /* AppDelegateTests.swift */,
 				0A749ADA229B7FDB0059B978 /* CalendarModelTests.swift */,
 				0A749AE0229B8E560059B978 /* CalendarViewControllerTests.swift */,
+				0A8B275022EE800800C794B5 /* AppDelegateTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -382,12 +384,12 @@
 		0A76FD1022ECD622009695CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0A76FD1222ECD622009695CD /* Info.plist */,
 				0A76FD1122ECD622009695CD /* Login.h */,
-				9FA216F52734615E008AC6D7 /* Login.storyboard */,
-				0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */,
 				0AF4B1E42237060100A8C9B6 /* LoginViewController.swift */,
 				0A06BE9122B0972900EA03E2 /* Validators.swift */,
+				0A8D0FD522EE1D8100E2ABF2 /* LoginAPI.swift */,
+				0A8B274622EE68F400C794B5 /* Login.storyboard */,
+				0A76FD1222ECD622009695CD /* Info.plist */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -395,11 +397,28 @@
 		0A76FD1D22ECD622009695CD /* LoginTests */ = {
 			isa = PBXGroup;
 			children = (
-				9FA216FD2736B967008AC6D7 /* Cases */,
-				9FA216FE2736B96D008AC6D7 /* Mocks */,
+				0A8B274B22EE6C2A00C794B5 /* Cases */,
+				0A8B274E22EE6C4000C794B5 /* Mocks */,
 				0A76FD2022ECD622009695CD /* Info.plist */,
 			);
 			path = LoginTests;
+			sourceTree = "<group>";
+		};
+		0A8B274B22EE6C2A00C794B5 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */,
+				0A31390522ED41B60043BBE3 /* ValidatorsTests.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		0A8B274E22EE6C4000C794B5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0A8B274C22EE6C3800C794B5 /* MockLoginAPI.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		0A8D0FCF22EE1BB100E2ABF2 /* Frameworks */ = {
@@ -467,39 +486,40 @@
 		0AF4B1CD223702A100A8C9B6 /* MyBiz */ = {
 			isa = PBXGroup;
 			children = (
-				0A61784922BA581200DB75DE /* AddProductTableViewCell.swift */,
-				0A2D944E22B9909900565339 /* AddToOrderTableViewController.swift */,
-				0AB45A8C226FEE8000654240 /* Announcement.swift */,
-				0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */,
-				0AF4B1E22237035400A8C9B6 /* API.swift */,
-				0AC8DBA722ADB47400A65044 /* APIError.swift */,
+				9FA21706273938CC008AC6D7 /* Analytics */,
 				0AF4B1CE223702A100A8C9B6 /* AppDelegate.swift */,
-				0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */,
-				0A749ADC229B80440059B978 /* Calendar */,
-				0A06BE9522B09C5100EA03E2 /* configuration.json */,
 				0A06BE9322B09BA100EA03E2 /* Configuration.swift */,
-				0A2D945022B990B100565339 /* CreatePurachaseOrderTableViewController.swift */,
-				0A307C21227CD63200B15EEA /* DateExtensions.swift */,
-				0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */,
+				0AB45A8A226FEDF400654240 /* AnnouncementsTableViewController.swift */,
+				0AAED2BF22AE804A00F8F2F1 /* LoggerImplementation.swift */,
+				0A749ADC229B80440059B978 /* Calendar */,
 				4CDBC63F227F74220043C1E0 /* DayDetailTableViewController.swift */,
-				0AB45A8E226FF4E200654240 /* Employee.swift */,
-				0AB45A92226FFA2000654240 /* Event.swift */,
-				0AF4B1DC223702A300A8C9B6 /* Info.plist */,
-				0AB45A962270865D00654240 /* JTAppleCalendar */,
-				0AF4B1D9223702A300A8C9B6 /* LaunchScreen.storyboard */,
-				0A749AB6229B01630059B978 /* licenses.md */,
-				0AAED2BF22AE804A00F8F2F1 /* Logger.swift */,
-				0AF4B1D4223702A100A8C9B6 /* Main.storyboard */,
-				0A307C1F227BC5EB00B15EEA /* OrgTableViewCell.swift */,
 				0A307C1D227BC5D700B15EEA /* OrgTableViewController.swift */,
-				0AB45A90226FF59E00654240 /* Product.swift */,
-				0AC8D0D322A54B9E00A65044 /* PurchaseOrder.swift */,
-				0AC8DBAF22ADECC400A65044 /* PurchasesTableViewCell.swift */,
+				0A307C1F227BC5EB00B15EEA /* OrgTableViewCell.swift */,
 				0AC8D0D522A54D1A00A65044 /* PurchasesTableViewController.swift */,
+				0AC8DBAF22ADECC400A65044 /* PurchasesTableViewCell.swift */,
+				0A2D945022B990B100565339 /* CreatePurachaseOrderTableViewController.swift */,
+				0A2D944E22B9909900565339 /* AddToOrderTableViewController.swift */,
+				0A61784922BA581200DB75DE /* AddProductTableViewCell.swift */,
+				0AAAAD5C22BF099D0021AAA3 /* DateSelectingViewController.swift */,
 				0AC8DBAD22ADE86000A65044 /* SettingsTableViewController.swift */,
-				0A99950A22B1B18D00AE728F /* TitleView.swift */,
+				0AF4B1E22237035400A8C9B6 /* API.swift */,
 				0AC8DBA522ADB23E00A65044 /* Token.swift */,
 				0A18F74722AF4C680085C183 /* UserInfo.swift */,
+				0AC8DBA722ADB47400A65044 /* APIError.swift */,
+				0AB45A8C226FEE8000654240 /* Announcement.swift */,
+				0AB45A8E226FF4E200654240 /* Employee.swift */,
+				0AB45A92226FFA2000654240 /* Event.swift */,
+				0AB45A90226FF59E00654240 /* Product.swift */,
+				0AC8D0D322A54B9E00A65044 /* PurchaseOrder.swift */,
+				0AF89E1822F8C655002B228A /* Report.swift */,
+				0A307C21227CD63200B15EEA /* DateExtensions.swift */,
+				0AF4B1D4223702A100A8C9B6 /* Main.storyboard */,
+				0AF4B1D7223702A300A8C9B6 /* Assets.xcassets */,
+				0A06BE9522B09C5100EA03E2 /* configuration.json */,
+				0AF4B1D9223702A300A8C9B6 /* LaunchScreen.storyboard */,
+				0AF4B1DC223702A300A8C9B6 /* Info.plist */,
+				0A749AB6229B01630059B978 /* licenses.md */,
+				0AB45A962270865D00654240 /* JTAppleCalendar */,
 			);
 			path = MyBiz;
 			sourceTree = "<group>";
@@ -507,16 +527,17 @@
 		0AFCD04C22EE043100B02279 /* UIHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				0A99950C22B1B1E600AE728F /* Colors.swift */,
+				0AFCD04D22EE043100B02279 /* UIHelpers.h */,
+				0AB45A88226FE3F000654240 /* UIViewController+Alert.swift */,
 				0AAED2BD22AE7BDB00F8F2F1 /* ErrorViewController.swift */,
-				9FA217042736C1DD008AC6D7 /* Logger.swift */,
-				0AFCD04E22EE043100B02279 /* Info.plist */,
 				0AC8DBB922ADF9E200A65044 /* Skin.swift */,
 				0A61784B22BA7E8A00DB75DE /* Styler.swift */,
+				0A99950C22B1B1E600AE728F /* Colors.swift */,
 				0AFCD06D22EE050D00B02279 /* UIConfiguration.swift */,
-				0AFCD04D22EE043100B02279 /* UIHelpers.h */,
+				0A99950A22B1B18D00AE728F /* TitleView.swift */,
+				0A8B275222EE840F00C794B5 /* Logger.swift */,
 				0A8D0FCC22EE167300E2ABF2 /* UIHelpers.storyboard */,
-				0AB45A88226FE3F000654240 /* UIViewController+Alert.swift */,
+				0AFCD04E22EE043100B02279 /* Info.plist */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -538,21 +559,11 @@
 			path = Cases;
 			sourceTree = "<group>";
 		};
-		9FA216FD2736B967008AC6D7 /* Cases */ = {
+		9FA21706273938CC008AC6D7 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				0A76FD2D22ECDC62009695CD /* LoginViewControllerTests.swift */,
-				0A31390522ED41B60043BBE3 /* ValidatorsTests.swift */,
 			);
-			path = Cases;
-			sourceTree = "<group>";
-		};
-		9FA216FE2736B96D008AC6D7 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				9FA216FF2736B982008AC6D7 /* MockLoginAPI.swift */,
-			);
-			path = Mocks;
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,7 +808,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FA216F62734615E008AC6D7 /* Login.storyboard in Resources */,
+				0A8B274822EE6A1600C794B5 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +823,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FA217012736BE80008AC6D7 /* Assets.xcassets in Resources */,
+				0A8B274F22EE6DDD00C794B5 /* Assets.xcassets in Resources */,
 				0A8D0FCD22EE167300E2ABF2 /* UIHelpers.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -843,7 +854,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A749AE1229B8E560059B978 /* CalendarViewControllerTests.swift in Sources */,
-				9FA217032736BEE8008AC6D7 /* AppDelegateTests.swift in Sources */,
+				0A8B275122EE800800C794B5 /* AppDelegateTests.swift in Sources */,
 				0A749ADF229B84EE0059B978 /* MockAPI.swift in Sources */,
 				0A3138FC22ECEF290043BBE3 /* APITests.swift in Sources */,
 				0A749ADB229B7FDB0059B978 /* CalendarModelTests.swift in Sources */,
@@ -869,7 +880,6 @@
 				0AB45A93226FFA2000654240 /* Event.swift in Sources */,
 				0AB45A91226FF59E00654240 /* Product.swift in Sources */,
 				0AB45AB22270865D00654240 /* CalendarStructs.swift in Sources */,
-				0A99950B22B1B18D00AE728F /* TitleView.swift in Sources */,
 				0AB45AAF2270865D00654240 /* JTAppleCollectionReusableView.swift in Sources */,
 				0AB45A8B226FEDF400654240 /* AnnouncementsTableViewController.swift in Sources */,
 				0AB45ABE2270884A00654240 /* CalendarViewController.swift in Sources */,
@@ -880,7 +890,7 @@
 				0A06BE9422B09BA100EA03E2 /* Configuration.swift in Sources */,
 				0AC8DBA822ADB47400A65044 /* APIError.swift in Sources */,
 				0AB45AC02270885600654240 /* CalendarCell.swift in Sources */,
-				0AAED2C022AE804A00F8F2F1 /* Logger.swift in Sources */,
+				0AAED2C022AE804A00F8F2F1 /* LoggerImplementation.swift in Sources */,
 				0AC8DBB022ADECC400A65044 /* PurchasesTableViewCell.swift in Sources */,
 				0AB45A8F226FF4E200654240 /* Employee.swift in Sources */,
 				0A307C20227BC5EB00B15EEA /* OrgTableViewCell.swift in Sources */,
@@ -895,6 +905,7 @@
 				0A749ADE229B82B10059B978 /* CalendarModel.swift in Sources */,
 				0AB45AB32270865D00654240 /* CalendarEnums.swift in Sources */,
 				0AB45ABA2270865D00654240 /* UICollectionViewDelegates.swift in Sources */,
+				0AF89E1922F8C655002B228A /* Report.swift in Sources */,
 				0AB45AB02270865D00654240 /* JTAppleCalendarDelegateProtocol.swift in Sources */,
 				0AB45AB52270865D00654240 /* InternalQueryFunctions.swift in Sources */,
 				0AB45ABB2270865D00654240 /* GlobalFunctionsAndExtensions.swift in Sources */,
@@ -915,9 +926,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FA216FB2736B6E1008AC6D7 /* LoginViewControllerTests.swift in Sources */,
+				0A8B274A22EE6C1400C794B5 /* LoginViewControllerTests.swift in Sources */,
 				0A8D0FD722EE215500E2ABF2 /* ValidatorsTests.swift in Sources */,
-				9FA217002736B982008AC6D7 /* MockLoginAPI.swift in Sources */,
+				0A8B274D22EE6C3800C794B5 /* MockLoginAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,10 +939,11 @@
 				0AFCD06A22EE046200B02279 /* UIViewController+Alert.swift in Sources */,
 				0AFCD06C22EE046200B02279 /* Styler.swift in Sources */,
 				0AFCD06B22EE046200B02279 /* ErrorViewController.swift in Sources */,
+				0A8B274922EE6AEA00C794B5 /* TitleView.swift in Sources */,
 				0AFCD06922EE046200B02279 /* Skin.swift in Sources */,
-				9FA217052736C1DD008AC6D7 /* Logger.swift in Sources */,
 				0AFCD06E22EE050D00B02279 /* UIConfiguration.swift in Sources */,
 				0AFCD06822EE046200B02279 /* Colors.swift in Sources */,
+				0A8B275322EE840F00C794B5 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,7 +1257,7 @@
 		0AFCD03E22EDFFB400B02279 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1274,7 +1286,7 @@
 		0AFCD03F22EDFFB400B02279 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1343,7 +1355,7 @@
 		0AFCD06322EE043100B02279 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1374,7 +1386,7 @@
 		0AFCD06422EE043100B02279 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

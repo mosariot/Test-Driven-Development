@@ -28,6 +28,7 @@
 
 import Foundation
 import Login
+import UIHelpers
 
 let UserLoggedOutNotification =
   Notification.Name("user logged out")
@@ -37,7 +38,6 @@ let UserLoggedInNotification =
 enum UserNotificationKey: String {
   case userId
 }
-
 
 protocol APIDelegate: AnyObject {
   func announcementsFailed(error: Error)
@@ -69,7 +69,8 @@ class API: LoginAPI {
   
   func login(username: String,
              password: String,
-             completion: @escaping (Result<String, Error>) -> ()) {
+             completion: @escaping (Result<String, Error>) -> ())
+  {
     let eventsEndpoint = server + "api/users/login"
     let eventsURL = URL(string: eventsEndpoint)!
     var urlRequest = URLRequest(url: eventsURL)

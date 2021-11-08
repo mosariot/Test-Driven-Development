@@ -45,6 +45,7 @@ class PurchasesTableViewController: UITableViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     api.delegate = self
     api.getProducts()
     api.getPurchases()

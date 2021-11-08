@@ -26,7 +26,6 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-
 import Foundation
 import UIKit
 
@@ -74,5 +73,7 @@ class TitleView: UIView {
     let titleRect = CGRect(x: textX, y: textY, width: textWidth, height: textHeight)
     let font = UIFont.preferredFont(forTextStyle: .title1)
     (title as NSString).draw(in: titleRect, withAttributes: [NSAttributedString.Key.font: font])
+    
   }
+  
 }

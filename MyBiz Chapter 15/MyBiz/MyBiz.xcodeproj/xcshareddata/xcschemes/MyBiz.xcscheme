@@ -66,23 +66,6 @@
                BlueprintName = "LoginTests"
                ReferencedContainer = "container:MyBiz.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "LoginViewControllerTests/testSignIn_WithBadCredentials_showsError()">
-               </Test>
-               <Test
-                  Identifier = "LoginViewControllerTests/testSignIn_WithGoodCredentials_doesLogin()">
-               </Test>
-               <Test
-                  Identifier = "LoginViewControllerTests/testSignIn_withGoodCredentials_callsLogin()">
-               </Test>
-               <Test
-                  Identifier = "LoginViewControllerTests/testSignIn_withInvalidEmail_doesNotCallLogin()">
-               </Test>
-               <Test
-                  Identifier = "LoginViewControllerTests/testSignIn_withInvalidPassowerd_doesNotCallLogin()">
-               </Test>
-            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

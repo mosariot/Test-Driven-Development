@@ -46,9 +46,9 @@ public class ErrorViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   
-  var secondaryAction: SecondaryAction? = nil
-  var alertTitle: String = ""
-  var subtitle: String? = nil
+  public var secondaryAction: SecondaryAction? = nil
+  public var alertTitle: String = ""
+  public var subtitle: String? = nil
   var skin: Skin? = nil
 
   public override func viewDidLoad() {

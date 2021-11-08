@@ -35,17 +35,15 @@ class LoginViewControllerTests: XCTestCase {
   var sut: LoginViewController!
   var api: MockLoginAPI!
 
-  // 1
   override func setUp() {
     super.setUp()
     sut = LoginViewController.make()
     api = MockLoginAPI()
-    
+
     sut.api = api
     sut.loadViewIfNeeded()
   }
 
-  // 2
   override func tearDown() {
     sut = nil
     api = nil
@@ -61,7 +59,7 @@ class LoginViewControllerTests: XCTestCase {
     sut.signIn(sut.signInButton!)
   }
 
-  func testSignIn_WithGoodCredentials_callsLogin() {
+  func testSignIn_withGoodCredentials_callsLogin() {
     // given
     givenGoodLogin()
 
@@ -72,10 +70,10 @@ class LoginViewControllerTests: XCTestCase {
     XCTAssertTrue(api.loginCalled)
   }
 
-  func testSignIn_withInvalidEmail_doesNotCallsLogin() {
+  func testSignIn_withInvalidEmail_doesNotCallLogin() {
     // given
-    sut.emailField.text = "pizza"
-    sut.passwordField.text = "hailHydra!"
+    sut.emailField.text = "pizza" //bad
+    sut.passwordField.text = "hailHydra" //good
 
     // when
     whenSignIn()
@@ -84,10 +82,10 @@ class LoginViewControllerTests: XCTestCase {
     XCTAssertFalse(api.loginCalled)
   }
 
-  func testSignIn_withInvalidPassword_doesNotCallsLogin() {
+  func testSignIn_withInvalidPassowerd_doesNotCallLogin() {
     // given
-    sut.emailField.text = "agend@shield.org"
-    sut.passwordField.text = "1"
+    sut.emailField.text = "agend@shield.org" //good
+    sut.passwordField.text = "1" //bad
 
     // when
     whenSignIn()

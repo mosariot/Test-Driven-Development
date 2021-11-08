@@ -26,19 +26,31 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-
 import Foundation
+import UIKit
 
-struct Product: Codable {
-  let productId: String
-  let productName: String
-  let unitPrice: Double
-  
-  private enum CodingKeys: String, CodingKey {
-    case productId = "id", productName = "name", unitPrice
-  }
+enum AnalyticsEvent: String {
+  case loginShown
+  case loginButtonClicked
+  case announcementsShown
+  case settingShown
+  case orgChartShown
+  case purchasesShown
+  case calendarShown
+  case fullDayShown
 }
 
-extension Product: Hashable {
-  
+enum AnalyticsType: String {
+  case screenView
+  case buttonTap
+}
+
+struct Report: Codable {
+  var name: String
+  var recordedDate: Date
+  var type: String
+  var duration: TimeInterval?
+  var device: String
+  var os: String
+  var appVersion: String
 }
